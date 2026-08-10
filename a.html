@@ -1,1 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>StyleHub Elite | Unisex Luxury Salon</title>
+    
+    <!-- SEO & PWA Meta Tags -->
+    <meta name="description" content="StyleHub Elite - Premium Unisex Luxury Salon offering high-end styling, bridal, and grooming services.">
+    <meta name="keywords" content="Luxury Salon, Hair Styling, Premium Grooming, VIP Salon, StyleHub">
+    <meta name="theme-color" content="#0A0A18">
+    <link rel="manifest" href="data:application/json;charset=utf-8,%7B%22name%22%3A%22StyleHub%20Elite%22%2C%22short_name%22%3A%22StyleHub%22%2C%22start_url%22%3A%22%2F%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%230A0A18%22%2C%22theme_color%22%3A%22%230A0A18%22%7D">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <style>
+        /* ================= VARIABLES ================= */
+        :root {
+            --primary: #FF4D94;
+            --secondary: #0A0A18;
+            --accent: #D4AF37;
+            --bg-color: #0A0A18;
+            --text-main: #FFFFFF;
+            --text-muted: rgba(255, 255, 255, 0.7);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --nav-height: 80px;
+            --font-main: 'Poppins', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Light Mode Variables */
+        [data-theme="light"] {
+            --bg-color: #F8F9FA;
+            --text-main: #121220;
+            --text-muted: rgba(0, 0, 0, 0.7);
+            --glass-bg: rgba(0, 0, 0, 0.05);
+            --glass-border: rgba(0, 0, 0, 0.1);
+        }
+
+        /* ================= BASE ================= */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            transition: background-color 0.4s, color 0.4s;
+            cursor: none; /* Custom cursor */
+        }
+        
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        button, input, select, textarea { font-family: inherit; outline: none; }
+        
+        /* ================= CUSTOM CURSOR ================= */
+        .cursor {
+            width: 20px; height: 20px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s, background 0.3s;
+        }
+        .cursor-trail {
+            position: fixed; width: 6px; height: 6px;
+            background: var(--accent); border-radius: 50%;
+            pointer-events: none; z-index: 99998;
+            animation: fadeTrail 0.5s linear forwards;
+        }
+        @keyframes fadeTrail {
+            to { opacity: 0; transform: scale(0); }
+        }
+        .cursor.magnet {
+            width: 40px; height: 40px;
+            background: rgba(255, 77, 148, 0.2);
+            border-color: transparent;
+        }
+
+        /* ================= TOP BAR ================= */
+        .top-bar {
+            background: var(--primary); color: #fff;
+            font-size: 0.85rem; padding: 8px 5%;
+            display: flex; justify-content: space-between;
+            align-items: center; position: relative; z-index: 1000;
+        }
+        .top-bar-social a { margin-left: 15px; font-size: 1rem; transition: var(--transition); }
+        .top-bar-social a:hover { color: var(--secondary); }
+
+        /* ================= NAVBAR ================= */
+        header {
+            position: sticky; top: 0; width: 100%; z-index: 999;
+            padding: 15px 5%; display: flex;
+            justify-content: space-between; align-items: center;
+            background: var(--glass-bg); backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+        header.scrolled { padding: 10px 5%; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .logo { font-size: 1.8rem; font-weight: 700; letter-spacing: 1px; color: var(--text-main); }
+        .logo span { color: var(--primary); }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a {
+            font-weight: 500; font-size: 0.95rem; text-transform: uppercase;
+            letter-spacing: 0.5px; position: relative;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -5px; left: 0;
+            width: 0%; height: 2px; background: var(--primary);
+            transition: var(--transition);
+        }
+        .nav-links a:hover::after { width: 100%; }
+        
+        .vip-btn {
+            background: var(--primary); color: #fff;
+            padding: 10px 24px; border-radius: 30px;
+            font-weight: 600; border: none; cursor: pointer;
+            box-shadow: 0 0 15px rgba(255, 77, 148, 0.5);
+            transition: var(--transition); text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        .vip-btn:hover {
+            box-shadow: 0 0 25px rgba(255, 77, 148, 0.8);
+            transform: translateY(-2px);
+        }
+
+        /* ================= HERO SECTION ================= */
+        .hero {
+            height: calc(100vh - var(--nav-height));
+            position: relative; display: flex;
+            align-items: center; padding: 0 5%;
+            background: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80') center/cover no-repeat;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(10,10,24,0.85) 0%, rgba(255,77,148,0.4) 100%);
+        }
+        .hero-content {
+            position: relative; z-index: 2; max-width: 800px;
+        }
+        .hero-title {
+            font-size: 4rem; font-weight: 700; line-height: 1.1;
+            margin-bottom: 20px; color: #fff;
+        }
+        .typewriter { color: var(--accent); display: inline-block; }
+        .hero-btns { display: flex; gap: 20px; margin-top: 40px; }
+        
+        .btn-fill, .btn-outline {
+            padding: 15px 35px; border-radius: 40px;
+            font-size: 1.1rem; font-weight: 600; cursor: pointer;
+            transition: var(--transition); display: inline-flex; align-items: center; gap: 10px;
+        }
+        .btn-fill {
+            background: var(--primary); color: #fff; border: none;
+            box-shadow: 0 10px 20px rgba(255, 77, 148, 0.3);
+        }
+        .btn-outline {
+            background: transparent; color: #fff;
+            border: 2px solid #fff;
+        }
+        .btn-fill:hover, .btn-outline:hover { transform: translateY(-3px); }
+        .btn-outline:hover { background: #fff; color: var(--secondary); }
+
+        /* ================= STICKY OFFER BAR ================= */
+        .offer-bar {
+            background: var(--accent); color: var(--secondary);
+            text-align: center; padding: 10px; font-weight: 600;
+            position: sticky; top: var(--nav-height); z-index: 998;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); display: flex;
+            justify-content: center; gap: 15px; align-items: center;
+        }
+        .countdown { display: inline-flex; gap: 5px; font-variant-numeric: tabular-nums; }
+        
+        /* ================= SECTIONS ================= */
+        section { padding: 100px 5%; position: relative; }
+        .section-title {
+            text-align: center; font-size: 2.5rem; margin-bottom: 60px;
+            position: relative;
+        }
+        .section-title span { color: var(--primary); }
+
+        /* ================= SERVICES ================= */
+        .services-tabs {
+            display: flex; justify-content: center; gap: 20px; margin-bottom: 40px;
+        }
+        .tab-btn {
+            background: var(--glass-bg); border: 1px solid var(--glass-border);
+            color: var(--text-main); padding: 12px 30px; border-radius: 30px;
+            cursor: pointer; transition: var(--transition); font-weight: 600;
+        }
+        .tab-btn.active { background: var(--primary); border-color: var(--primary); color: #fff; }
+        
+        .services-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: var(--glass-bg); border: 1px solid var(--glass-border);
+            border-radius: 20px; padding: 30px; position: relative;
+            backdrop-filter: blur(10px); transform-style: preserve-3d;
+            transition: transform 0.5s; overflow: hidden;
+        }
+        .service-card:hover { transform: translateY(-10px) rotateX(5deg) rotateY(5deg); }
+        .popular-badge {
+            position: absolute; top: 15px; right: 15px;
+            background: var(--accent); color: var(--secondary);
+            font-size: 0.75rem; font-weight: 700; padding: 5px 12px;
+            border-radius: 20px; text-transform: uppercase;
+        }
+        .service-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
+        .price { font-size: 1.8rem; font-weight: 700; color: var(--primary); margin: 15px 0; }
+        .strike { text-decoration: line-through; font-size: 1rem; color: var(--text-muted); margin-left: 10px; }
+        .service-features { margin-bottom: 25px; }
+        .service-features li { margin-bottom: 8px; font-size: 0.95rem; color: var(--text-muted); }
+        .service-features i { color: var(--accent); margin-right: 10px; }
+        .service-card button { width: 100%; }
+
+        /* ================= BEFORE / AFTER ================= */
+        .ba-container {
+            position: relative; max-width: 800px; margin: 0 auto;
+            border-radius: 20px; overflow: hidden; height: 500px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .ba-img {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .img-after { z-index: 1; }
+        .img-before { z-index: 2; clip-path: inset(0 50% 0 0); }
+        .ba-slider {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 3; opacity: 0; cursor: ew-resize;
+        }
+        .ba-line {
+            position: absolute; top: 0; left: 50%; width: 4px; height: 100%;
+            background: var(--primary); z-index: 2; pointer-events: none;
+            transform: translateX(-50%); box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        .ba-btn {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 40px; height: 40px; background: #fff; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--primary); font-size: 1.2rem; z-index: 2; pointer-events: none;
+        }
+
+        /* ================= SMART BOOKING ================= */
+        .booking-section {
+            background: linear-gradient(45deg, var(--secondary), #1a1a2e);
+            border-top: 1px solid var(--glass-border);
+        }
+        .booking-form {
+            max-width: 900px; margin: 0 auto; background: var(--glass-bg);
+            padding: 40px; border-radius: 20px; border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px); display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+        }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group.full { grid-column: span 2; }
+        .booking-form label { font-size: 0.9rem; color: var(--text-muted); }
+        .booking-form input, .booking-form select {
+            padding: 15px; border-radius: 10px; border: 1px solid var(--glass-border);
+            background: rgba(255,255,255,0.02); color: var(--text-main); font-size: 1rem;
+        }
+        .booking-form input:focus, .booking-form select:focus {
+            border-color: var(--primary); background: rgba(255,77,148,0.05);
+        }
+        
+        /* ================= TEAM ================= */
+        .team-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;
+        }
+        .team-card {
+            position: relative; border-radius: 20px; overflow: hidden; cursor: pointer;
+        }
+        .team-card img {
+            width: 100%; height: 350px; object-fit: cover; transition: var(--transition);
+        }
+        .team-info {
+            position: absolute; bottom: -100px; left: 0; width: 100%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            padding: 20px; transition: var(--transition); text-align: center;
+        }
+        .team-card:hover img { transform: scale(1.1); filter: grayscale(100%); }
+        .team-card:hover .team-info { bottom: 0; }
+        .team-info h4 { color: #fff; font-size: 1.3rem; }
+        .team-info p { color: var(--primary); font-size: 0.9rem; font-weight: 600; margin-bottom: 10px; }
+        .exp-badge {
+            background: var(--accent); color: var(--secondary); padding: 4px 10px;
+            border-radius: 12px; font-size: 0.8rem; font-weight: 700;
+        }
+
+        /* ================= TESTIMONIALS ================= */
+        .testimonial-carousel {
+            display: flex; gap: 30px; overflow-x: auto; padding: 20px 0; scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+        .testimonial-carousel::-webkit-scrollbar { display: none; }
+        .testimonial-card {
+            min-width: 350px; background: var(--glass-bg); border: 1px solid var(--glass-border);
+            padding: 30px; border-radius: 20px; scroll-snap-align: center;
+        }
+        .client-info { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .client-info img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; }
+        .stars { color: var(--accent); margin-bottom: 10px; font-size: 0.9rem; }
+        
+        /* ================= INSTAGRAM GRID ================= */
+        .insta-grid {
+            display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px;
+        }
+        .insta-item {
+            aspect-ratio: 1; border-radius: 10px; overflow: hidden; position: relative;
+        }
+        .insta-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .insta-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255,77,148,0.7); display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: var(--transition); color: #fff; font-size: 2rem;
+        }
+        .insta-item:hover img { transform: scale(1.1); }
+        .insta-item:hover .insta-overlay { opacity: 1; }
+
+        /* ================= COUNTER ================= */
+        .counter-section {
+            background: url('https://images.unsplash.com/photo-1521590832167-7bfc17484d20?auto=format&fit=crop&q=80') center/cover fixed;
+            text-align: center; color: #fff; padding: 80px 5%;
+            position: relative;
+        }
+        .counter-section::before {
+            content: ''; position: absolute; inset: 0; background: rgba(10,10,24,0.8);
+        }
+        .counter-content { position: relative; z-index: 2; }
+        .counter-number { font-size: 4rem; font-weight: 700; color: var(--primary); }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background: #05050C; padding: 60px 5% 30px; border-top: 1px solid var(--glass-border);
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px;
+        }
+        .footer-col h4 { font-size: 1.2rem; margin-bottom: 20px; color: #fff; }
+        .footer-col ul li { margin-bottom: 12px; color: var(--text-muted); cursor: pointer; transition: var(--transition); }
+        .footer-col ul li:hover { color: var(--primary); }
+        .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid var(--glass-border); color: var(--text-muted); font-size: 0.9rem; }
+
+        /* ================= THEME SWITCHER ================= */
+        .theme-switcher {
+            position: fixed; left: 0; top: 50%; transform: translateY(-50%);
+            background: var(--glass-bg); backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border); border-left: none;
+            padding: 15px; border-radius: 0 15px 15px 0; z-index: 1000;
+            display: flex; flex-direction: column; gap: 15px;
+        }
+        .color-dot {
+            width: 25px; height: 25px; border-radius: 50%; cursor: pointer;
+            border: 2px solid transparent; transition: var(--transition);
+        }
+        .color-dot:hover { transform: scale(1.2); }
+        .mode-toggle { cursor: pointer; font-size: 1.2rem; color: var(--text-main); text-align: center; }
+
+        /* ================= LANGUAGE & 360 BTN ================= */
+        .lang-toggle {
+            display: flex; gap: 5px; background: var(--glass-bg); padding: 5px 10px; border-radius: 20px;
+        }
+        .lang-btn { background: none; border: none; color: var(--text-muted); cursor: pointer; font-weight: 600; font-size: 0.8rem; }
+        .lang-btn.active { color: var(--primary); }
+        
+        .tour-btn {
+            position: fixed; bottom: 30px; left: 30px; z-index: 990;
+            background: var(--glass-bg); backdrop-filter: blur(10px); border: 1px solid var(--glass-border);
+            color: var(--text-main); padding: 12px 20px; border-radius: 30px; cursor: pointer;
+            display: flex; align-items: center; gap: 10px; font-weight: 600; box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .tour-btn i { color: var(--accent); }
+
+        /* ================= WHATSAPP AI BOT ================= */
+        .wa-widget {
+            position: fixed; bottom: 30px; right: 30px; z-index: 1000;
+        }
+        .wa-btn {
+            width: 60px; height: 60px; background: #25D366; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 2rem; cursor: pointer; box-shadow: 0 10px 25px rgba(37,211,102,0.4);
+            animation: pulse 2s infinite; position: relative;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); }
+            100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+        }
+        .wa-chat-box {
+            position: absolute; bottom: 80px; right: 0; width: 320px;
+            background: var(--bg-color); border: 1px solid var(--glass-border);
+            border-radius: 20px; overflow: hidden; display: none;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5); transform-origin: bottom right;
+        }
+        .wa-chat-box.active { display: block; animation: scaleIn 0.3s ease; }
+        @keyframes scaleIn { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        
+        .wa-header { background: #075E54; color: #fff; padding: 15px; display: flex; align-items: center; gap: 10px; }
+        .wa-header img { width: 40px; height: 40px; border-radius: 50%; }
+        .wa-header .close-chat { margin-left: auto; cursor: pointer; }
+        .wa-body { height: 300px; padding: 15px; overflow-y: auto; background: var(--glass-bg); display: flex; flex-direction: column; gap: 10px; }
+        .wa-msg { max-width: 80%; padding: 10px 15px; border-radius: 15px; font-size: 0.9rem; clear: both; }
+        .msg-bot { background: var(--glass-border); color: var(--text-main); border-bottom-left-radius: 2px; align-self: flex-start; }
+        .msg-user { background: #056162; color: #fff; border-bottom-right-radius: 2px; align-self: flex-end; }
+        .wa-options { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 5px; }
+        .wa-opt-btn { background: rgba(37,211,102,0.2); border: 1px solid #25D366; color: var(--text-main); padding: 5px 12px; border-radius: 15px; font-size: 0.8rem; cursor: pointer; }
+
+        /* ================= MODALS & POPUPS ================= */
+        .modal {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px);
+            z-index: 10000; display: none; align-items: center; justify-content: center;
+        }
+        .modal.active { display: flex; }
+        .modal-content {
+            background: var(--bg-color); border: 1px solid var(--glass-border);
+            padding: 40px; border-radius: 20px; max-width: 500px; width: 90%;
+            text-align: center; position: relative;
+        }
+        .close-modal { position: absolute; top: 15px; right: 15px; font-size: 1.5rem; cursor: pointer; }
+        
+        /* 360 Tour Image Slider */
+        .tour-slider { position: relative; width: 100%; height: 300px; border-radius: 10px; overflow: hidden; margin-top: 20px;}
+        .tour-slider img { width: 100%; height: 100%; object-fit: cover; position: absolute; opacity: 0; transition: opacity 0.5s; }
+        .tour-slider img.active { opacity: 1; }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-title { font-size: 2.5rem; }
+            .hero-btns { flex-direction: column; }
+            .booking-form { grid-template-columns: 1fr; }
+            .insta-grid { grid-template-columns: repeat(3, 1fr); }
+            .theme-switcher { display: none; }
+            .cursor, .cursor-trail { display: none; }
+            body { cursor: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cursor Elements -->
+    <div class="cursor" id="cursor"></div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-info" data-i18n="topbar_time">
+            <i class="fa-regular fa-clock"></i> Open Daily: 10 AM - 9 PM
+        </div>
+        <div class="top-bar-social">
+            <span data-i18n="topbar_call">Call: +1 234 567 890</span>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header id="header">
+        <a href="#" class="logo">StyleHub<span>.</span></a>
+        <nav class="nav-links">
+            <a href="#services" data-i18n="nav_services">Services</a>
+            <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
+            <a href="#team" data-i18n="nav_team">Team</a>
+            <a href="#contact" data-i18n="nav_contact">Contact</a>
+        </nav>
+        <div style="display:flex; align-items:center; gap: 15px;">
+            <div class="lang-toggle">
+                <button class="lang-btn active" onclick="changeLang('en')">EN</button>
+                <button class="lang-btn" onclick="changeLang('hi')">HI</button>
+                <button class="lang-btn" onclick="changeLang('bn')">BN</button>
+            </div>
+            <button class="vip-btn mag-btn" onclick="document.getElementById('booking').scrollIntoView()" data-i18n="nav_vip">VIP Booking</button>
+        </div>
+    </header>
+
+    <!-- Sticky Offer Bar -->
+    <div class="offer-bar">
+        <span data-i18n="offer_text">🔥 3 Bridal Slots Left - Offer ends in:</span>
+        <div class="countdown" id="countdown">04:29:59</div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span data-i18n="hero_title">Your Style. Our Craft.</span><br>
+                <span class="typewriter" id="typewriter"></span>
+            </h1>
+            <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 20px; max-width: 600px;" data-i18n="hero_sub">Experience the epitome of luxury grooming and styling in an ambiance designed for the elite.</p>
+            <div class="hero-btns">
+                <button class="btn-fill mag-btn" onclick="openWhatsApp('Her')"><i class="fa-regular fa-calendar-check"></i> <span data-i18n="btn_her">Book for Her</span></button>
+                <button class="btn-outline mag-btn" onclick="openWhatsApp('Him')"><span data-i18n="btn_him">Book for Him</span></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Theme Switcher -->
+    <div class="theme-switcher">
+        <i class="fa-solid fa-moon mode-toggle" onclick="toggleMode()" id="modeIcon"></i>
+        <div class="color-dot" style="background: #FF4D94;" onclick="changeColor('#FF4D94')"></div>
+        <div class="color-dot" style="background: #00E5FF;" onclick="changeColor('#00E5FF')"></div>
+        <div class="color-dot" style="background: #B388FF;" onclick="changeColor('#B388FF')"></div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="section-title" data-i18n="sec_services">Our Premium <span>Services</span></h2>
+        
+        <div class="services-tabs">
+            <button class="tab-btn active mag-btn" onclick="filterServices('him')" data-i18n="tab_him">For Him</button>
+            <button class="tab-btn mag-btn" onclick="filterServices('her')" data-i18n="tab_her">For Her</button>
+            <button class="tab-btn mag-btn" onclick="filterServices('couples')" data-i18n="tab_couple">Couples</button>
+        </div>
+
+        <div class="services-grid" id="servicesGrid">
+            <!-- Populated by JS -->
+        </div>
+    </section>
+
+    <!-- Before / After Section -->
+    <section id="gallery">
+        <h2 class="section-title" data-i18n="sec_transform">Real <span>Transformations</span></h2>
+        <div class="ba-container" id="baContainer">
+            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f10d5e43?auto=format&fit=crop&q=80" alt="After" class="ba-img img-after">
+            <img src="https://images.unsplash.com/photo-1620331311520-246422fd82f9?auto=format&fit=crop&q=80" alt="Before" class="ba-img img-before" id="imgBefore">
+            <div class="ba-line" id="baLine">
+                <div class="ba-btn"><i class="fa-solid fa-arrows-left-right"></i></div>
+            </div>
+            <input type="range" min="0" max="100" value="50" class="ba-slider" id="baSlider">
+        </div>
+        <p style="text-align:center; margin-top: 15px; color: var(--text-muted);" data-i18n="drag_text">Drag to see the magic</p>
+    </section>
+
+    <!-- Smart Booking Form -->
+    <section id="booking" class="booking-section">
+        <h2 class="section-title" data-i18n="sec_booking">Smart <span>Booking</span></h2>
+        <form class="booking-form" id="smartForm" onsubmit="submitBooking(event)">
+            <div class="form-group">
+                <label data-i18n="form_name">Full Name</label>
+                <input type="text" id="bfName" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label data-i18n="form_phone">Phone Number</label>
+                <input type="tel" id="bfPhone" required placeholder="+1 234 567 890">
+            </div>
+            <div class="form-group">
+                <label data-i18n="form_service">Select Service</label>
+                <select id="bfService" required>
+                    <option value="Haircut & Styling">Haircut & Styling</option>
+                    <option value="Bridal Makeup">Bridal Makeup</option>
+                    <option value="Keratin Treatment">Keratin Treatment</option>
+                    <option value="VIP Grooming Package">VIP Grooming Package</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label data-i18n="form_date">Preferred Date & Time</label>
+                <input type="datetime-local" id="bfDate" required>
+            </div>
+            <div class="form-group full">
+                <button type="submit" class="btn-fill mag-btn" style="width: 100%; justify-content: center;"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="form_btn">Confirm via WhatsApp</span></button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team">
+        <h2 class="section-title" data-i18n="sec_team">Master <span>Stylists</span></h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&q=80" alt="Stylist">
+                <div class="team-info">
+                    <h4>Elena Roberts</h4>
+                    <p>Creative Director</p>
+                    <span class="exp-badge">12+ Years Exp</span>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&q=80" alt="Stylist">
+                <div class="team-info">
+                    <h4>Marcus Chen</h4>
+                    <p>Senior Barber</p>
+                    <span class="exp-badge">8+ Years Exp</span>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&q=80" alt="Stylist">
+                <div class="team-info">
+                    <h4>Sarah Jenkins</h4>
+                    <p>Color Specialist</p>
+                    <span class="exp-badge">10+ Years Exp</span>
+                </div>
+            </div>
+            <div class="team-card">
+                <img src="https://images.unsplash.com/photo-1572041812607-3951c5fb0773?auto=format&fit=crop&q=80" alt="Stylist">
+                <div class="team-info">
+                    <h4>David Miller</h4>
+                    <p>Bridal Makeup Artist</p>
+                    <span class="exp-badge">15+ Years Exp</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Counter Section -->
+    <section class="counter-section" id="counterSection">
+        <div class="counter-content">
+            <div class="counter-number" id="happyClients">0</div>
+            <p style="font-size: 1.2rem; font-weight: 300;" data-i18n="counter_text">Happy Clients Styled</p>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section>
+        <h2 class="section-title" data-i18n="sec_reviews">Client <span>Love</span></h2>
+        <div class="testimonial-carousel">
+            <div class="testimonial-card">
+                <div class="client-info">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80" alt="Client">
+                    <div>
+                        <h5 style="font-size: 1.1rem;">Jessica T.</h5>
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    </div>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">"Absolutely incredible experience. The attention to detail and luxury feel is unmatched in the city."</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="client-info">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80" alt="Client">
+                    <div>
+                        <h5 style="font-size: 1.1rem;">Michael R.</h5>
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    </div>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">"Best haircut of my life. The VIP grooming package is worth every penny. Highly recommend Marcus!"</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="client-info">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80" alt="Client">
+                    <div>
+                        <h5 style="font-size: 1.1rem;">Priya K.</h5>
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    </div>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">"Got my bridal makeup done here. They made me feel like royalty on my special day."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Grid -->
+    <section style="padding-top: 0;">
+        <div class="insta-grid">
+            <div class="insta-item"><img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80" alt="IG"><div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div></div>
+            <div class="insta-item"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&q=80" alt="IG"><div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div></div>
+            <div class="insta-item"><img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80" alt="IG"><div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div></div>
+            <div class="insta-item"><img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&q=80" alt="IG"><div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div></div>
+            <div class="insta-item"><img src="https://images.unsplash.com/photo-1521590832167-7bfc17484d20?auto=format&fit=crop&q=80" alt="IG"><div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div></div>
+            <div class="insta-item"><img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&q=80" alt="IG"><div class="insta-overlay"><i class="fa-brands fa-instagram"></i></div></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3 class="logo" style="margin-bottom: 20px;">StyleHub<span>.</span></h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Elevating personal style to an art form. Your luxury grooming destination.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li>Services</li>
+                    <li>Our Team</li>
+                    <li>Gallery</li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li>Privacy Policy</li>
+                    <li>Terms of Service</li>
+                    <li>Refund Policy</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 StyleHub Elite. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- 360 Tour Button -->
+    <button class="tour-btn mag-btn" onclick="openModal('tourModal')">
+        <i class="fa-solid fa-vr-cardboard"></i> <span data-i18n="btn_tour">Virtual Tour</span>
+    </button>
+
+    <!-- Virtual Tour Modal -->
+    <div class="modal" id="tourModal">
+        <div class="modal-content">
+            <i class="fa-solid fa-times close-modal" onclick="closeModal('tourModal')"></i>
+            <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Salon 360° Tour</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Experience our premium ambiance.</p>
+            <div class="tour-slider" id="tourSlider">
+                <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80" class="active">
+                <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&q=80">
+                <img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&q=80">
+            </div>
+            <button class="btn-outline mag-btn" style="margin-top: 20px; width:100%; border-color: var(--primary); color: var(--primary);" onclick="nextTourImg()">Next View <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Exit Intent Modal -->
+    <div class="modal" id="exitModal">
+        <div class="modal-content">
+            <i class="fa-solid fa-times close-modal" onclick="closeModal('exitModal')"></i>
+            <h2 style="font-size: 2rem; color: var(--primary); margin-bottom: 10px;">Wait! Don't leave yet.</h2>
+            <p style="margin-bottom: 25px; font-size: 1.1rem;">Claim your exclusive <strong>20% OFF</strong> on your first visit.</p>
+            <button class="btn-fill mag-btn" style="width: 100%; justify-content: center;" onclick="claimOffer()"><i class="fa-brands fa-whatsapp"></i> Claim via WhatsApp</button>
+        </div>
+    </div>
+
+    <!-- Admin Panel (Hidden by default) -->
+    <div id="adminPanel" style="display:none; position:fixed; inset:0; background:var(--bg-color); z-index:100000; padding: 50px; text-align:center;">
+        <h2 style="color: var(--primary); margin-bottom: 20px;">Admin Dashboard</h2>
+        <div id="adminLogin">
+            <input type="password" id="adminPwd" placeholder="Enter Password" style="padding:10px; border-radius:5px; border:1px solid var(--primary); background:transparent; color:#fff;">
+            <button onclick="loginAdmin()" class="btn-fill" style="padding: 10px 20px;">Login</button>
+        </div>
+        <div id="adminControls" style="display:none; margin-top:30px;">
+            <p style="margin-bottom: 20px;">Broadcast promotional offer to all registered clients.</p>
+            <button onclick="broadcastOffer()" class="btn-fill"><i class="fa-solid fa-bullhorn"></i> Broadcast Offer</button>
+        </div>
+    </div>
+
+    <!-- WhatsApp AI Bot -->
+    <div class="wa-widget">
+        <div class="wa-chat-box" id="waChatBox">
+            <div class="wa-header">
+                <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&q=80" alt="Bot">
+                <div>
+                    <h4 style="font-size: 1rem; margin:0;">Elena - AI Assistant</h4>
+                    <span style="font-size: 0.75rem; color: #d1f2eb;">Online</span>
+                </div>
+                <i class="fa-solid fa-times close-chat" onclick="toggleWaChat()"></i>
+            </div>
+            <div class="wa-body" id="waBody">
+                <!-- Chat injected by JS -->
+            </div>
+        </div>
+        <div class="wa-btn mag-btn" onclick="toggleWaChat()">
+            <i class="fa-brands fa-whatsapp"></i>
+        </div>
+    </div>
+
+    <script>
+        /* ================= 22. CONFIG SECTION ================= */
+        const CONFIG = {
+            salonName: "StyleHub Elite",
+            waNumber: "1234567890", // Replace with real number without +
+            botReplies: {
+                welcome: "Hi! Welcome to StyleHub Elite. ✨ How can I assist you today?",
+                askCategory: "Are you looking for services for Him, Her, or Couples?",
+                askDate: "Great! When would you like to visit us? (e.g., Tomorrow, Next Week)",
+                askTime: "Perfect. Morning, Afternoon, or Evening?",
+                final: "Awesome! Let me generate your booking request..."
+            },
+            services: {
+                him: [
+                    { name: "Executive Haircut", price: "$45", strike: "$60", pop: true, f1: "Scalp Massage", f2: "Hot Towel Finish" },
+                    { name: "Beard Sculpting", price: "$30", strike: "$40", pop: false, f1: "Straight Razor", f2: "Beard Oil" },
+                    { name: "VIP Grooming", price: "$80", strike: "$100", pop: false, f1: "Haircut & Beard", f2: "Facial Scrub" }
+                ],
+                her: [
+                    { name: "Balayage & Blowdry", price: "$150", strike: "$200", pop: true, f1: "Color Consultation", f2: "Premium Products" },
+                    { name: "Bridal Trial", price: "$120", strike: "$150", pop: false, f1: "Full Makeup", f2: "Hair Updo" },
+                    { name: "Keratin Smooth", price: "$200", strike: "$250", pop: false, f1: "Frizz Free", f2: "Lasts 3 Months" }
+                ],
+                couples: [
+                    { name: "Pre-Wedding Glow", price: "$280", strike: "$350", pop: true, f1: "Dual Facials", f2: "Hair Treatments" },
+                    { name: "Spa & Styling", price: "$180", strike: "$220", pop: false, f1: "Head Massage", f2: "Styling" }
+                ]
+            }
+        };
+
+        /* ================= LANGUAGE DICTIONARY ================= */
+        const i18n = {
+            en: {
+                topbar_time: "<i class='fa-regular fa-clock'></i> Open Daily: 10 AM - 9 PM",
+                topbar_call: "Call: +1 234 567 890",
+                nav_services: "Services", nav_gallery: "Gallery", nav_team: "Team", nav_contact: "Contact", nav_vip: "VIP Booking",
+                offer_text: "🔥 3 Bridal Slots Left - Offer ends in:",
+                hero_title: "Your Style. Our Craft.", hero_sub: "Experience the epitome of luxury grooming and styling in an ambiance designed for the elite.",
+                btn_her: "Book for Her", btn_him: "Book for Him",
+                sec_services: "Our Premium <span>Services</span>", tab_him: "For Him", tab_her: "For Her", tab_couple: "Couples",
+                sec_transform: "Real <span>Transformations</span>", drag_text: "Drag to see the magic",
+                sec_booking: "Smart <span>Booking</span>", form_name: "Full Name", form_phone: "Phone Number", form_service: "Select Service", form_date: "Preferred Date & Time", form_btn: "Confirm via WhatsApp",
+                sec_team: "Master <span>Stylists</span>", counter_text: "Happy Clients Styled", sec_reviews: "Client <span>Love</span>",
+                btn_tour: "Virtual Tour"
+            },
+            hi: {
+                topbar_time: "<i class='fa-regular fa-clock'></i> खुला है: 10 AM - 9 PM",
+                topbar_call: "कॉल करें: +1 234 567 890",
+                nav_services: "सेवाएं", nav_gallery: "गैलरी", nav_team: "टीम", nav_contact: "संपर्क", nav_vip: "VIP बुकिंग",
+                offer_text: "🔥 केवल 3 ब्राइडल स्लॉट बाकी - ऑफर समाप्त:",
+                hero_title: "आपकी शैली. हमारी कला.", hero_sub: "एलीट के लिए डिज़ाइन किए गए माहौल में लक्जरी ग्रूमिंग का अनुभव करें।",
+                btn_her: "महिलाओं के लिए", btn_him: "पुरुषों के लिए",
+                sec_services: "हमारी प्रीमियम <span>सेवाएं</span>", tab_him: "पुरुषों के लिए", tab_her: "महिलाओं के लिए", tab_couple: "जोड़ों के लिए",
+                sec_transform: "असली <span>बदलाव</span>", drag_text: "जादू देखने के लिए खींचें",
+                sec_booking: "स्मार्ट <span>बुकिंग</span>", form_name: "पूरा नाम", form_phone: "फोन नंबर", form_service: "सेवा चुनें", form_date: "पसंदीदा तारीख और समय", form_btn: "WhatsApp द्वारा पुष्टि करें",
+                sec_team: "मास्टर <span>स्टाइलिस्ट</span>", counter_text: "संतुष्ट ग्राहक", sec_reviews: "ग्राहक <span>समीक्षा</span>",
+                btn_tour: "वर्चुअल टूर"
+            },
+            bn: {
+                topbar_time: "<i class='fa-regular fa-clock'></i> খোলা: সকাল 10 টা - রাত 9 টা",
+                topbar_call: "কল করুন: +1 234 567 890",
+                nav_services: "পরিষেবা", nav_gallery: "গ্যালারি", nav_team: "দল", nav_contact: "যোগাযোগ", nav_vip: "ভিআইপি বুকিং",
+                offer_text: "🔥 ৩ টি ব্রাইডাল স্লট বাকি - অফার শেষ:",
+                hero_title: "আপনার স্টাইল. আমাদের শিল্প.", hero_sub: "এলিটদের জন্য ডিজাইন করা পরিবেশে বিলাসবহুল গ্রুমিংয়ের অভিজ্ঞতা নিন।",
+                btn_her: "মহিলাদের জন্য", btn_him: "পুরুষদের জন্য",
+                sec_services: "আমাদের প্রিমিয়াম <span>পরিষেবা</span>", tab_him: "পুরুষদের জন্য", tab_her: "মহিলাদের জন্য", tab_couple: "দম্পতিদের জন্য",
+                sec_transform: "আসল <span>পরিবর্তন</span>", drag_text: "ম্যাজিক দেখতে টানুন",
+                sec_booking: "স্মার্ট <span>বুকিং</span>", form_name: "পুরো নাম", form_phone: "ফোন নম্বর", form_service: "পরিষেবা নির্বাচন করুন", form_date: "পছন্দের তারিখ এবং সময়", form_btn: "WhatsApp দ্বারা নিশ্চিত করুন",
+                sec_team: "মাস্টার <span>স্টাইলিস্ট</span>", counter_text: "সন্তুষ্ট গ্রাহক", sec_reviews: "গ্রাহক <span>পর্যালোচনা</span>",
+                btn_tour: "ভার্চুয়াল ট্যুর"
+            }
+        };
+
+        function changeLang(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[lang][key]) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = i18n[lang][key];
+                    else el.innerHTML = i18n[lang][key];
+                }
+            });
+        }
+
+        /* ================= CUSTOM CURSOR & MAGNET ================= */
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+
+            // Sparkle Trail
+            if (Math.random() > 0.8) {
+                let trail = document.createElement('div');
+                trail.className = 'cursor-trail';
+                trail.style.left = e.clientX + 'px';
+                trail.style.top = e.clientY + 'px';
+                document.body.appendChild(trail);
+                setTimeout(() => trail.remove(), 500);
+            }
+        });
+
+        document.querySelectorAll('.mag-btn, a, input, select').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('magnet'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('magnet'));
+        });
+
+        /* ================= THEME & COLORS ================= */
+        function toggleMode() {
+            const body = document.body;
+            const icon = document.getElementById('modeIcon');
+            if (body.getAttribute('data-theme') === 'light') {
+                body.removeAttribute('data-theme');
+                icon.className = 'fa-solid fa-moon mode-toggle';
+            } else {
+                body.setAttribute('data-theme', 'light');
+                icon.className = 'fa-solid fa-sun mode-toggle';
+            }
+        }
+        function changeColor(hex) {
+            document.documentElement.style.setProperty('--primary', hex);
+        }
+
+        /* ================= SCROLL NAV ================= */
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+
+        /* ================= TYPEWRITER ================= */
+        const words = ["Your Confidence.", "Your Elegance.", "Your Signature."];
+        let i = 0, j = 0, isDeleting = false;
+        function typeWriter() {
+            const el = document.getElementById('typewriter');
+            const currentWord = words[i];
+            
+            if (isDeleting) {
+                el.innerText = currentWord.substring(0, j - 1);
+                j--;
+            } else {
+                el.innerText = currentWord.substring(0, j + 1);
+                j++;
+            }
+
+            if (!isDeleting && j === currentWord.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && j === 0) {
+                isDeleting = false;
+                i = (i + 1) % words.length;
+            }
+            setTimeout(typeWriter, isDeleting ? 50 : 150);
+        }
+        typeWriter();
+
+        /* ================= COUNTDOWN ================= */
+        function updateCountdown() {
+            const now = new Date();
+            const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
+            const diff = endOfDay - now;
+            
+            const h = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+            const m = String(Math.floor((diff / 1000 / 60) % 60)).padStart(2, '0');
+            const s = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
+            
+            document.getElementById('countdown').innerText = `${h}:${m}:${s}`;
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        /* ================= SERVICES RENDER ================= */
+        function filterServices(cat) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            const grid = document.getElementById('servicesGrid');
+            grid.innerHTML = '';
+            
+            CONFIG.services[cat].forEach(s => {
+                grid.innerHTML += `
+                    <div class="service-card">
+                        ${s.pop ? `<span class="popular-badge">Most Popular</span>` : ''}
+                        <h3>${s.name}</h3>
+                        <div class="price">${s.price} <span class="strike">${s.strike}</span></div>
+                        <ul class="service-features">
+                            <li><i class="fa-solid fa-check"></i> ${s.f1}</li>
+                            <li><i class="fa-solid fa-check"></i> ${s.f2}</li>
+                            <li><i class="fa-solid fa-check"></i> Expert Consultation</li>
+                        </ul>
+                        <button class="btn-outline mag-btn" onclick="openWhatsApp('Book ${s.name}')" style="border-color:var(--primary); color:var(--text-main);">Book Now</button>
+                    </div>
+                `;
+            });
+            // Re-apply magnet cursor to new buttons
+            document.querySelectorAll('.service-card button').forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('magnet'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('magnet'));
+            });
+        }
+        // Init services
+        filterServices('him');
+
+        /* ================= BEFORE/AFTER ================= */
+        const baSlider = document.getElementById('baSlider');
+        const baLine = document.getElementById('baLine');
+        const imgBefore = document.getElementById('imgBefore');
+        
+        baSlider.addEventListener('input', (e) => {
+            const val = e.target.value;
+            imgBefore.style.clipPath = `inset(0 ${100 - val}% 0 0)`;
+            baLine.style.left = `${val}%`;
+        });
+
+        /* ================= ANIMATED COUNTER ================= */
+        let counted = false;
+        window.addEventListener('scroll', () => {
+            const counterSec = document.getElementById('counterSection');
+            if (!counted && window.scrollY + window.innerHeight > counterSec.offsetTop + 100) {
+                let cnt = 0;
+                const target = 2847;
+                const interval = setInterval(() => {
+                    cnt += 31;
+                    if (cnt >= target) {
+                        cnt = target;
+                        clearInterval(interval);
+                        counted = true;
+                    }
+                    document.getElementById('happyClients').innerText = cnt + "+";
+                }, 20);
+            }
+        });
+
+        /* ================= MODALS & EXIT INTENT ================= */
+        function openModal(id) { document.getElementById(id).classList.add('active'); }
+        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+        
+        // 360 Tour Logic
+        let tourIndex = 0;
+        function nextTourImg() {
+            const imgs = document.querySelectorAll('#tourSlider img');
+            imgs[tourIndex].classList.remove('active');
+            tourIndex = (tourIndex + 1) % imgs.length;
+            imgs[tourIndex].classList.add('active');
+        }
+
+        // Exit Intent
+        let exitTriggered = false;
+        document.addEventListener('mouseleave', (e) => {
+            if (e.clientY < 0 && !exitTriggered) {
+                openModal('exitModal');
+                exitTriggered = true;
+            }
+        });
+        function claimOffer() {
+            openWhatsApp("I want to claim my 20% OFF first visit offer!");
+            closeModal('exitModal');
+        }
+
+        /* ================= SMART BOOKING (WHATSAPP BUILDER) ================= */
+        function openWhatsApp(msg) {
+            const url = `https://wa.me/${CONFIG.waNumber}?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+        }
+
+        function submitBooking(e) {
+            e.preventDefault();
+            const name = document.getElementById('bfName').value;
+            const phone = document.getElementById('bfPhone').value;
+            const service = document.getElementById('bfService').value;
+            const date = document.getElementById('bfDate').value;
+            
+            const msg = `*New VIP Booking Request*\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Service:* ${service}\n*Date/Time:* ${date}\n\nPlease confirm availability.`;
+            openWhatsApp(msg);
+        }
+
+        /* ================= WHATSAPP AI BOT ================= */
+        let botStep = 0;
+        let botData = {};
+
+        function toggleWaChat() {
+            const box = document.getElementById('waChatBox');
+            box.classList.toggle('active');
+            if (box.classList.contains('active') && botStep === 0) {
+                botInit();
+            }
+        }
+
+        function appendMsg(text, sender, options = []) {
+            const body = document.getElementById('waBody');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `wa-msg msg-${sender}`;
+            msgDiv.innerText = text;
+            body.appendChild(msgDiv);
+
+            if (options.length > 0) {
+                const optDiv = document.createElement('div');
+                optDiv.className = 'wa-options';
+                options.forEach(opt => {
+                    const btn = document.createElement('button');
+                    btn.className = 'wa-opt-btn';
+                    btn.innerText = opt;
+                    btn.onclick = () => handleBotReply(opt);
+                    optDiv.appendChild(btn);
+                });
+                body.appendChild(optDiv);
+            }
+            body.scrollTop = body.scrollHeight;
+        }
+
+        function botInit() {
+            document.getElementById('waBody').innerHTML = '';
+            botStep = 1;
+            appendMsg(CONFIG.botReplies.welcome, 'bot');
+            setTimeout(() => {
+                appendMsg(CONFIG.botReplies.askCategory, 'bot', ['Him', 'Her', 'Couples']);
+            }, 800);
+        }
+
+        function handleBotReply(reply) {
+            // Remove previous options visually
+            const opts = document.querySelectorAll('.wa-options');
+            if (opts.length > 0) opts[opts.length - 1].remove();
+
+            appendMsg(reply, 'user');
+
+            setTimeout(() => {
+                if (botStep === 1) {
+                    botData.category = reply;
+                    botStep = 2;
+                    appendMsg(CONFIG.botReplies.askDate, 'bot', ['Tomorrow', 'This Weekend', 'Next Week']);
+                } else if (botStep === 2) {
+                    botData.date = reply;
+                    botStep = 3;
+                    appendMsg(CONFIG.botReplies.askTime, 'bot', ['Morning', 'Afternoon', 'Evening']);
+                } else if (botStep === 3) {
+                    botData.time = reply;
+                    botStep = 4;
+                    appendMsg(CONFIG.botReplies.final, 'bot');
+                    setTimeout(() => {
+                        const finalMsg = `Hi StyleHub, I'd like to book a session for ${botData.category} on ${botData.date} during the ${botData.time}.`;
+                        openWhatsApp(finalMsg);
+                        toggleWaChat();
+                        botStep = 0; // reset
+                    }, 1500);
+                }
+            }, 600);
+        }
+
+        /* ================= ADMIN PANEL ================= */
+        function checkAdmin() {
+            if (window.location.hash === '#admin') {
+                document.getElementById('adminPanel').style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.getElementById('adminPanel').style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+        window.addEventListener('hashchange', checkAdmin);
+        checkAdmin();
+
+        function loginAdmin() {
+            const pwd = document.getElementById('adminPwd').value;
+            if (pwd === 'admin123') { // Mock secure login
+                document.getElementById('adminLogin').style.display = 'none';
+                document.getElementById('adminControls').style.display = 'block';
+            } else {
+                alert('Invalid Password');
+            }
+        }
+
+        function broadcastOffer() {
+            // Simulating broadcast by opening WA links in sequence
+            const msg = "Exclusive VIP Offer from StyleHub Elite! Get 30% off your next grooming session. Book now!";
+            const numbers = ["1111111111", "2222222222"]; // Mock numbers
+            alert(`Broadcasting to ${numbers.length} clients...`);
+            numbers.forEach((num, index) => {
+                setTimeout(() => {
+                    window.open(`https://wa.me/${num}?text=${encodeURIComponent(msg)}`, '_blank');
+                }, index * 1000);
+            });
+        }
+    </script>
+</body>
+</html>
