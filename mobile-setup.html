@@ -1,1 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STYLEHUB ELITE - MOBILE SETUP GUIDE</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{
+  --bg:#0A0A18; --card:#12121f; --text:#f5f5f7; --muted:#a1a1b5;
+  --gold:#D4AF37; --white:#FFFFFF; --green:#25D366; --border:rgba(255,255,255,0.1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Poppins',sans-serif; background:var(--bg); color:var(--text);
+  line-height:1.8; padding:0;
+  background-image: radial-gradient(circle at 20% 10%, rgba(212,175,55,0.1) 0%, transparent 50%);
+}
+.container{max-width:950px; margin:0 auto; padding:20px;}
+.header{
+  text-align:center; padding:40px 20px; border-bottom:1px solid var(--border);
+  background:linear-gradient(135deg, rgba(212,175,55,0.12), transparent);
+  border-radius:20px; margin-bottom:30px; position:relative; overflow:hidden;
+}
+.header::before{
+  content:""; position:absolute; top:-50%; left:-50%; width:200%; height:200%;
+  background:conic-gradient(from 0deg, transparent, var(--gold), transparent);
+  animation:rotate 6s linear infinite; opacity:0.1;
+}
+@keyframes rotate{ to{transform:rotate(360deg);} }
+.header h1{
+  font-size:2rem; font-weight:800; 
+  background:linear-gradient(135deg, var(--white), var(--gold));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  margin-bottom:8px; position:relative; z-index:2;
+}
+.badge{display:inline-block; background:var(--green); color:#fff; padding:6px 16px; border-radius:50px; font-weight:700; font-size:0.85rem; margin:10px 5px;}
+.step{
+  background:var(--card); border:1px solid var(--border); border-radius:16px;
+  padding:25px; margin-bottom:20px; transition:all .3s;
+}
+.step:hover{transform:translateY(-4px); border-color:var(--gold); box-shadow:0 10px 30px rgba(212,175,55,0.2);}
+.step h2{
+  font-size:1.3rem; color:var(--gold); margin-bottom:15px;
+  display:flex; align-items:center; gap:10px;
+}
+.step h3{font-size:1.05rem; color:var(--white); margin:18px 0 10px; display:flex; align-items:center; gap:8px;}
+code{
+  background:#0A0A18; color:var(--gold); padding:3px 8px; border-radius:6px;
+  font-family:monospace; font-size:0.9rem; border:1px solid rgba(212,175,55,0.3);
+}
+pre{
+  background:#0A0A18; border:1px solid var(--border); padding:16px; border-radius:10px;
+  overflow-x:auto; margin:15px 0; color:var(--text); font-size:0.85rem;
+}
+ul{padding-left:20px; margin:10px 0;}
+ul li{margin:10px 0; color:var(--muted);}
+.warning{
+  background:rgba(212,175,55,0.1); border-left:4px solid var(--gold);
+  padding:15px; border-radius:8px; margin:15px 0; color:var(--text);
+}
+.btn{
+  display:inline-flex; align-items:center; gap:8px; background:var(--gold); color:#0A0A18; text-decoration:none;
+  padding:12px 24px; border-radius:50px; font-weight:700; margin:8px 5px 0 0;
+  transition:transform .2s; border:none; cursor:pointer;
+}
+.btn:hover{transform:scale(1.05);}
+.btn-green{background:var(--green); color:#fff;}
+.support-box{
+  background:linear-gradient(135deg, var(--gold), #b8860b); color:#0A0A18;
+  padding:25px; border-radius:16px; text-align:center; margin-top:30px;
+}
+.support-box h2{color:#0A0A18; font-size:1.4rem; margin-bottom:10px;}
+.support-box a{color:#0A0A18; font-weight:800; font-size:1.2rem; text-decoration:none;}
+.footer{
+  text-align:center; padding:30px 20px; margin-top:30px;
+  border-top:1px solid var(--border); color:var(--muted);
+}
+</style>
+</head>
+<body>
+<div class="container">
 
+  <div class="header">
+    <h1><i class="fa-solid fa-mobile-screen"></i> STYLEHUB ELITE</h1>
+    <p>MOBILE A TO Z SETUP GUIDE - NO COMPUTER NEEDED</p>
+    <span class="badge"><i class="fa-solid fa-clock"></i> 15 Minutes</span>
+    <span class="badge"><i class="fa-solid fa-rupee-sign"></i> 100% Free Hosting</span>
+  </div>
+
+  <div class="step">
+    <h2><i class="fa-solid fa-download"></i> [STEP 0] DOWNLOAD THESE 3 FREE APPS</h2>
+    <a href="https://play.google.com/store/apps/details?id=web.acode" class="btn" target="_blank"><i class="fa-solid fa-code"></i> Acode Editor</a>
+    <a href="https://github.com/mobile" class="btn" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+    <a href="https://www.google.com/chrome/" class="btn" target="_blank"><i class="fa-brands fa-chrome"></i> Chrome</a>
+  </div>
+
+  <div class="step">
+    <h2><i class="fa-solid fa-pen-to-square"></i> [STEP 1] EDIT index.html ON PHONE - 8 MINUTES</h2>
+
+    <h3><i class="fa-solid fa-1"></i> OPEN FILE IN ACODE</h3>
+    <ul>
+      <li>1. Open "Acode" app</li>
+      <li>2. Tap "≡" > "Open Folder" > Select your "index.html" file</li>
+    </ul>
+
+    <h3><i class="fa-solid fa-2"></i> CHANGE SALON NAME + WHATSAPP</h3>
+    <ul>
+      <li>1. Tap "🔍" Search icon on top</li>
+      <li>2. Search for: <code>const CONFIG</code></li>
+      <li>3. CHANGE ONLY THESE 4 LINES:</li>
+    </ul>
+    <pre>const CONFIG = {
+  SALON_NAME: "StyleHub Elite",  <-- YOUR SALON NAME
+  COLOR_PRIMARY: "#FFFFFF",      
+  WHATSAPP_HER: "919876543210",  <-- 91 + FEMALE NUMBER
+  WHATSAPP_HIM: "919876543211",  <-- 91 + MALE NUMBER
+  ...
+}</pre>
+    <div class="warning"><i class="fa-solid fa-lightbulb"></i> EXAMPLE: 9876543210 = 919876543210</div>
+
+    <h3><i class="fa-solid fa-3"></i> REPLACE NUMBER EVERYWHERE</h3>
+    <ul>
+      <li>1. Tap "🔍" Search icon</li>
+      <li>2. Search: <code>919876543210</code></li>
+      <li>3. Tap "..." > "Replace All" > Put your number > "Replace All"</li>
+    </ul>
+
+    <h3><i class="fa-solid fa-4"></i> CHANGE PHOTOS - USE IMGBB</h3>
+    <ul>
+      <li>1. Open Chrome > Go to <a href="https://imgbb.com" target="_blank">imgbb.com</a> > "Start Uploading"</li>
+      <li>2. Upload 4 stylist photos + 6 salon photos</li>
+      <li>3. Copy "Direct Link" for each photo</li>
+      <li>4. Back in Acode. Search: <code>const TEAM</code> > Replace 4 links</li>
+      <li>5. Search: <code>const IG_IMGS</code> > Replace 6 links</li>
+    </ul>
+
+    <h3><i class="fa-solid fa-5"></i> SETUP WHATSAPP ASSISTANT</h3>
+    <ul><li>1. Search: <code>const waReplies</code></li><li>2. Edit Location, Price, Offer, Booking messages</li></ul>
+    <pre>const waReplies = {
+  "location": "📍 We are at [YOUR ADDRESS]. Open 10AM-9PM.",
+  "prices": "💇‍♀️ PRICE LIST 💇‍♂️ HER: Rs 499, HIM: Rs 299",
+  "offer": "🔥 TODAY'S OFFER 🔥 20% OFF on Haircut",
+  "booking": "✅ To book tell me: Name, Service, Date, Time"
+};</pre>
+
+    <h3><i class="fa-solid fa-6"></i> SAVE FILE</h3>
+    <p>Tap "💾" Save icon on top</p>
+  </div>
+
+  <div class="step">
+    <h2><i class="fa-brands fa-github"></i> [STEP 2] HOST FOR FREE USING GITHUB - 5 MINUTES</h2>
+    <h3>TASK 1: UPLOAD TO GITHUB</h3>
+    <ul>
+      <li>1. Open "GitHub" app > Login</li>
+      <li>2. Tap "+" > "New repository" > Name: <code>stylehub-salon</code></li>
+      <li>3. Visibility: Public > Tap "Create repository"</li>
+      <li>4. Tap "Add file" > "Upload files" > Select "index.html"</li>
+      <li>5. Tap "Commit changes"</li>
+    </ul>
+    <h3>TASK 2: TURN ON WEBSITE</h3>
+    <ul>
+      <li>1. Tap "⚙️ Settings" tab > Scroll down > Tap "Pages"</li>
+      <li>2. Under "Source" select "Branch: main" > Tap "Save"</li>
+      <li>3. Wait 2 minutes</li>
+      <li>4. Your Live Link: <code>https://your-username.github.io/stylehub-salon/</code></li>
+    </ul>
+    <p><b>DONE! Copy this link and share on WhatsApp, Instagram</b></p>
+  </div>
+
+  <div class="step">
+    <h2><i class="fa-solid fa-user-shield"></i> [STEP 3] HOW TO OPEN ADMIN PANEL</h2>
+    <ul>
+      <li>1. Open Chrome > Go to your website link</li>
+      <li>2. Add <code>#admin</code> at the end</li>
+      <li>Example: <code>https://your-username.github.io/stylehub-salon/#admin</code></li>
+      <li>3. Password: <code>admin123</code></li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <h2><i class="fa-solid fa-wrench"></i> [STEP 4] MOBILE KEYBOARD TIPS</h2>
+    <p><b>PROBLEM:</b> { } " : symbols not found<br>
+    <b>SOLUTION:</b> In Acode keyboard, tap "123" > "=\<" button</p><br>
+    <p><b>PROBLEM:</b> Images not loading<br>
+    <b>SOLUTION:</b> Imgbb link must start with https:// and end with .jpg</p>
+  </div>
+
+  <div class="support-box">
+    <h2><i class="fa-solid fa-headset"></i> NEED HELP?</h2>
+    <p>WhatsApp Support</p>
+    <a href="https://wa.me/918768863096" target="_blank"><i class="fa-brands fa-whatsapp"></i> +91 87688 63096</a>
+  </div>
+
+  <div class="footer">
+    <p>Thank you for purchasing StyleHub Elite ❤️</p>
+  </div>
+
+</div>
+</body>
+</html>
