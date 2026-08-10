@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STYLEHUB ELITE - COMPUTER SETUP GUIDE</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+body{
+  font-family:'Poppins',sans-serif;
+  background:#0A0A18;
+  color:#f5f5f7;
+  line-height:1.8;
+  margin:0;
+  padding:40px 20px;
+  background-image: radial-gradient(circle at 10% 20%, rgba(212,175,55,0.1) 0%, transparent 40%);
+}
+.container{
+  max-width:900px;
+  margin:0 auto;
+  background:#12121f;
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:20px;
+  padding:50px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+}
+h1{
+  text-align:center;
+  font-size:2.2rem;
+  font-weight:800;
+  background:linear-gradient(135deg,#FFFFFF,#D4AF37);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:5px;
+}
+.sub{
+  text-align:center;
+  color:#a1a1b5;
+  margin-bottom:30px;
+  font-weight:600;
+}
+.intro{
+  text-align:center;
+  color:#a1a1b5;
+  margin-bottom:40px;
+  padding-bottom:20px;
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+h2{
+  color:#D4AF37;
+  font-size:1.3rem;
+  margin-top:35px;
+  margin-bottom:15px;
+  border-left:4px solid #D4AF37;
+  padding-left:12px;
+}
+h3{
+  color:#FFFFFF;
+  font-size:1.05rem;
+  margin-top:20px;
+  margin-bottom:10px;
+}
+code{
+  background:#0A0A18;
+  color:#D4AF37;
+  padding:2px 8px;
+  border-radius:6px;
+  font-family:monospace;
+  border:1px solid rgba(212,175,55,0.3);
+}
+pre{
+  background:#0A0A18;
+  border:1px solid rgba(255,255,255,0.1);
+  padding:18px;
+  border-radius:10px;
+  overflow-x:auto;
+  margin:15px 0;
+  color:#f5f5f7;
+  font-size:0.9rem;
+}
+ul{padding-left:25px;}
+li{margin:8px 0; color:#a1a1b5;}
+.note{
+  background:rgba(212,175,55,0.1);
+  border-left:4px solid #D4AF37;
+  padding:15px;
+  border-radius:8px;
+  margin:15px 0;
+  color:#f5f5f7;
+}
+hr{border:none; border-top:1px solid rgba(255,255,255,0.1); margin:30px 0;}
+.footer{
+  text-align:center;
+  margin-top:40px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,0.1);
+  color:#a1a1b5;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1><i class="fa-solid fa-crown"></i> STYLEHUB ELITE - COMPLETE COMPUTER SETUP GUIDE</h1>
+<p class="sub">Version 1.0 | Single File Website | No Coding Required</p>
+
+<p class="intro">
+This is a premium 1-file salon website with WhatsApp Booking, Admin Panel, 
+360 Tour, Multi-Language. Just follow the steps below.
+</p>
+
+<h2>[STEP 0] WHAT YOU NEED</h2>
+<ul>
+<li>1.  A Computer or Laptop with Internet</li>
+<li>2.  Notepad++ or VS Code - Free. Download from Google</li>
+<li>3.  Google Chrome Browser</li>
+</ul>
+
+<h2>[STEP 1] EDIT THE FILE - 10 MINUTES</h2>
+
+<h3>TASK 1: OPEN THE FILE</h3>
+<ul>
+<li>1.  Right Click on "index.html"</li>
+<li>2.  Click "Open with" > "Notepad++" or "VS Code"</li>
+</ul>
+
+<h3>TASK 2: CHANGE SALON NAME AND WHATSAPP NUMBER - MOST IMPORTANT</h3>
+<ul>
+<li>1.  Press Ctrl + F on keyboard. A search box will open</li>
+<li>2.  Search for: <code>const CONFIG</code></li>
+<li>3.  You will see this. Change these 4 lines:</li>
+</ul>
+<pre>SALON_NAME: "StyleHub Elite",  <-- PUT YOUR SALON NAME HERE
+COLOR_PRIMARY: "#FFFFFF",      <-- KEEP THIS WHITE
+WHATSAPP_HER: "919876543210",  <-- WHATSAPP FOR FEMALE. USE 91 + NUMBER
+WHATSAPP_HIM: "919876543211",  <-- WHATSAPP FOR MALE. USE 91 + NUMBER</pre>
+<div class="note">Example: For India number 9876543210, write 919876543210</div>
+
+<h3>TASK 3: REPLACE PHONE NUMBER EVERYWHERE</h3>
+<ul>
+<li>1.  Press Ctrl + F</li>
+<li>2.  Search for: <code>919876543210</code></li>
+<li>3.  Click "Replace All" and put your number</li>
+</ul>
+
+<h3>TASK 4: CHANGE CITY AND ADDRESS</h3>
+<ul>
+<li>1.  Press Ctrl + F</li>
+<li>2.  Search for: <code>Your City</code></li>
+<li>3.  Replace "Your City" with "Your City, Your State"</li>
+</ul>
+
+<h3>TASK 5: CHANGE PHOTOS</h3>
+<ul>
+<li>1.  Press Ctrl + F</li>
+<li>2.  Search for: <code>const TEAM</code></li>
+<li>3.  You will see 4 photo links. Replace with your stylist photos.</li>
+<li>    To get photo link: Upload to imgbb.com > Copy "Direct Link"</li>
+<li>4.  Press Ctrl + F</li>
+<li>5.  Search for: <code>const IG_IMGS</code></li>
+<li>6.  Replace these 6 links with your salon work photos</li>
+</ul>
+
+<h3>TASK 6: CHANGE SERVICES AND PRICES</h3>
+<ul>
+<li>1.  Press Ctrl + F</li>
+<li>2.  Search for: <code>const SERVICES</code></li>
+<li>3.  Edit "her", "him", "couples" sections with your services and prices</li>
+</ul>
+
+<h3>TASK 7: SAVE THE FILE</h3>
+<p>Press Ctrl + S to save</p>
+
+<hr>
+
+<h2>[STEP 2] TEST ON YOUR COMPUTER</h2>
+<ul>
+<li>1.  Double Click "index.html"</li>
+<li>2.  It will open in Google Chrome</li>
+<li>3.  Check all buttons, forms, and links</li>
+</ul>
+
+<h2>[STEP 3] FREE HOSTING - GITHUB PAGES - 5 MINUTES</h2>
+<p>This is 100% Free and works forever.</p>
+<h3>STEP 1: CREATE ACCOUNT</h3>
+<ul><li>1.  Go to github.com</li><li>2.  Click "Sign up" and create a free account</li></ul>
+<h3>STEP 2: CREATE NEW REPOSITORY</h3>
+<ul><li>1.  Click the "+" icon on top right > "New repository"</li><li>2.  Repository name: stylehub-salon</li><li>3.  Select "Public"</li><li>4.  Click "Create repository"</li></ul>
+<h3>STEP 3: UPLOAD YOUR FILE</h3>
+<ul><li>1.  Click "Add file" > "Upload files"</li><li>2.  Drag and drop your edited "index.html" file</li><li>3.  Click "Commit changes"</li></ul>
+<h3>STEP 4: PUBLISH WEBSITE</h3>
+<ul><li>1.  Click "Settings" tab</li><li>2.  Click "Pages" on left menu</li><li>3.  Under "Source", select "Branch: main" and click "Save"</li><li>4.  Wait 2 minutes</li><li>5.  Your live website link will appear: https://your-username.github.io/stylehub-salon/</li></ul>
+<p><b>DONE! Share this link with everyone.</b></p>
+
+<h2>[STEP 4] PAID HOSTING - HOSTINGER / GODADDY / NAMECHEAP - 5 MINUTES</h2>
+<p>Use this if you want a .com domain like www.yoursalon.com</p>
+<h3>STEP 1: BUY HOSTING</h3><p>Buy 1 year hosting from Hostinger, GoDaddy etc. Cost: $20-$40 per year</p>
+<h3>STEP 2: UPLOAD FILE</h3>
+<ul><li>1.  Login to cPanel</li><li>2.  Open "File Manager"</li><li>3.  Go to "public_html" folder</li><li>4.  Click "Upload" and upload your "index.html" file</li></ul>
+<h3>STEP 3: CONNECT DOMAIN</h3><p>Connect your domain from the hosting dashboard. They have video tutorials.</p>
+<p><b>DONE! Your website will be live on www.yoursalon.com</b></p>
+
+<h2>[STEP 5] HOW TO USE ADMIN PANEL</h2>
+<ul>
+<li>1.  Add <code>#admin</code> at the end of your website link</li>
+<li>    Example: https://your-website.com/index.html#admin</li>
+<li>2.  Password: admin123</li>
+<li>3.  Click "Broadcast Offer" to send offer message to all demo customers.</li>
+<li>    You can add your real customer numbers in CONFIG > CUSTOMERS_DEMO</li>
+</ul>
+
+<h2>[STEP 6] TROUBLESHOOTING</h2>
+<p><b>PROBLEM:</b> WhatsApp button not working<br>
+<b>SOLUTION:</b> Check number in CONFIG. Must start with 91 and no spaces</p>
+<br>
+<p><b>PROBLEM:</b> Images not loading<br>
+<b>SOLUTION:</b> Image links must start with https://. Google Drive links will not work</p>
+<br>
+<p><b>PROBLEM:</b> Admin panel not opening<br>
+<b>SOLUTION:</b> Add #admin exactly at the end of URL</p>
+
+<hr>
+<div class="footer">
+<p><b>SUPPORT:</b> [YOUR WHATSAPP NUMBER]</p>
+<p>Thank you for purchasing StyleHub Elite ❤️</p>
+</div>
+
+</div>
+</body>
+</html>
