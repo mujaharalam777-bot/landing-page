@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+<title>StyleHub Elite | Unisex Luxury Salon – Book Online</title>
+<meta name="description" content="StyleHub Elite – Premium unisex luxury salon. Hair, Beard, Bridal, Couples packages. Book via WhatsApp. Him, Her & Couples services.">
+<meta name="theme-color" content="#FF4D94">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="manifest" href="data:application/json,{"name":"StyleHub Elite","short_name":"StyleHub","start_url":"/","display":"standalone","background_color":"#0a0a12","theme_color":"#FF4D94"}">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HairSalon","name":"StyleHub Elite","description":"Unisex Luxury Salon","telephone":"+919876543210","address":{"@type":"PostalAddress","addressLocality":"Your City"},"openingHours":"Mo-Su 10:00-21:00"}
+</script>
+<style>
+:root {
+  --primary: #FF4D94;
+  --primary-dark: #e03a7d;
+  --navy: #0a0a18;
+  --navy2: #12122a;
+  --text: #f5f5f7;
+  --text-muted: #a1a1b5;
+  --glass: rgba(255,255,255,0.06);
+  --glass-border: rgba(255,255,255,0.12);
+  --radius: 16px;
+  --shadow: 0 20px 50px rgba(0,0,0,0.4);
+  --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+[data-theme="light"] {
+  --navy: #f8f7fc;
+  --navy2: #ffffff;
+  --text: #1a1a2e;
+  --text-muted: #5a5a72;
+  --glass: rgba(0,0,0,0.04);
+  --glass-border: rgba(0,0,0,0.08);
+  --shadow: 0 20px 50px rgba(0,0,0,0.08);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: var(--font);
+  background: var(--navy);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: none;
+}
+@media (max-width:768px){ body{ cursor:auto; } }
+
+/* Custom Cursor */
+.cursor {
+  width: 12px; height: 12px;
+  background: var(--primary);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: width .15s, height .15s, background .15s;
+  mix-blend-mode: difference;
+}
+.cursor.hover { width: 40px; height: 40px; background: transparent; border: 2px solid var(--primary); }
+.sparkle {
+  position: fixed;
+  width: 6px; height: 6px;
+  background: var(--primary);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  animation: sparkleOut .6s forwards;
+}
+@keyframes sparkleOut {
+  to { transform: scale(0) translateY(-30px); opacity: 0; }
+}
+
+/* Top Bar */
+.topbar {
+  background: linear-gradient(90deg, var(--primary), #7c3aed);
+  color: #fff;
+  font-size: 13px;
+  padding: 8px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.topbar a { color: #fff; text-decoration: none; margin-left: 12px; opacity: .9; }
+.topbar a:hover { opacity: 1; }
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background .3s, backdrop-filter .3s;
+}
+.navbar.scrolled {
+  background: rgba(10,10,24,0.75);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--glass-border);
+}
+[data-theme="light"] .navbar.scrolled {
+  background: rgba(255,255,255,0.85);
+}
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, var(--primary), #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: .85;
+  transition: opacity .2s, color .2s;
+}
+.nav-links a:hover { opacity: 1; color: var(--primary); }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: transform .25s, box-shadow .25s, background .25s;
+  text-decoration: none;
+  position: relative;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), #c026d3);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(255,77,148,0.4);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(255,77,148,0.55);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 2px solid var(--glass-border);
+}
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+.btn-glow {
+  animation: pulseGlow 2s infinite;
+}
+@keyframes pulseGlow {
+  0%,100% { box-shadow: 0 0 0 0 rgba(255,77,148,0.5); }
+  50% { box-shadow: 0 0 0 12px rgba(255,77,148,0); }
+}
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.hero-videos {
+  position: absolute;
+  inset: 0;
+}
+.hero-videos video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+.hero-videos video.active { opacity: 1; }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(10,10,40,0.75) 0%, rgba(255,77,148,0.35) 100%);
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 20px;
+  max-width: 900px;
+}
+.hero-content h1 {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+.typewriter {
+  border-right: 3px solid var(--primary);
+  animation: blink 0.8s step-end infinite;
+  display: inline-block;
+  min-height: 1.2em;
+}
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+.hero-btns {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+/* Sections common */
+section {
+  padding: 80px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-title {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.section-title h2 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.section-title p {
+  color: var(--text-muted);
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* Services Tabs */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.tab-btn {
+  padding: 10px 28px;
+  border-radius: 50px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass);
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .25s;
+}
+.tab-btn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+.service-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 28px;
+  position: relative;
+  transition: transform .4s, box-shadow .4s;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+.service-card:hover {
+  transform: translateY(-8px) rotateX(2deg);
+  box-shadow: var(--shadow);
+}
+.service-card .badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+.service-card h3 { font-size: 1.25rem; margin-bottom: 8px; }
+.service-card .price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 12px 0;
+}
+.service-card .strike {
+  text-decoration: line-through;
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-right: 8px;
+}
+.service-card p { color: var(--text-muted); font-size: 0.9rem; }
+
+/* Booking Form */
+.booking-box {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 36px;
+  max-width: 560px;
+  margin: 0 auto;
+  box-shadow: var(--shadow);
+}
+.booking-box h3 { text-align: center; margin-bottom: 24px; font-size: 1.5rem; }
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; font-size: 0.85rem; margin-bottom: 6px; color: var(--text-muted); }
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  background: var(--navy2);
+  color: var(--text);
+  font-size: 1rem;
+}
+.form-group input:focus, .form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* Before After */
+.ba-container {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  overflow: hidden;
+  height: 400px;
+  user-select: none;
+}
+.ba-before, .ba-after {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+.ba-before { background: linear-gradient(135deg, #2a2a4a, #1a1a2e); }
+.ba-after {
+  background: linear-gradient(135deg, #FF4D94, #7c3aed);
+  width: 50%;
+  overflow: hidden;
+}
+.ba-handle {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: #fff;
+  cursor: ew-resize;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+.ba-handle::after {
+  content: '⟷';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #fff;
+  color: #333;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+.ba-label {
+  position: absolute;
+  top: 16px;
+  padding: 4px 12px;
+  background: rgba(0,0,0,0.5);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 4;
+}
+.ba-label.before { left: 16px; }
+.ba-label.after { right: 16px; }
+
+/* Offer Bar */
+.offer-bar {
+  background: linear-gradient(90deg, #7c3aed, var(--primary));
+  color: #fff;
+  text-align: center;
+  padding: 14px 20px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  position: sticky;
+  top: 60px;
+  z-index: 900;
+}
+.offer-bar span { background: rgba(0,0,0,0.25); padding: 2px 8px; border-radius: 6px; margin: 0 4px; }
+
+/* Team */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+.team-card {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  background: var(--navy2);
+}
+.team-card .avatar {
+  width: 100%; height: 100%;
+  background: linear-gradient(145deg, #2a2a4a, #1a1a2e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+}
+.team-card .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 40%, rgba(0,0,0,0.85));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity .3s;
+}
+.team-card:hover .overlay { opacity: 1; }
+.team-card h4 { font-size: 1.1rem; }
+.team-card span { font-size: 0.85rem; color: var(--primary); }
+
+/* Counter */
+.counters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 24px;
+  text-align: center;
+}
+.counter-item h3 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+.counter-item p { color: var(--text-muted); font-size: 0.9rem; }
+
+/* Testimonials */
+.testimonial-wrap {
+  position: relative;
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.testimonial-track {
+  display: flex;
+  transition: transform .5s ease;
+}
+.testimonial-slide {
+  min-width: 100%;
+  padding: 0 12px;
+}
+.testimonial-slide iframe {
+  width: 100%;
+  height: 360px;
+  border: none;
+  border-radius: var(--radius);
+}
+
+/* Instagram mock */
+.ig-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+.ig-item {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2a2a4a, var(--primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  transition: transform .3s;
+}
+.ig-item:hover { transform: scale(1.04); }
+
+/* Floating WhatsApp Bot */
+.wa-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 2000;
+}
+.wa-btn {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: #25D366;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .25s;
+}
+.wa-btn:hover { transform: scale(1.08); }
+.wa-chat {
+  position: absolute;
+  bottom: 72px;
+  right: 0;
+  width: 340px;
+  max-width: calc(100vw - 32px);
+  background: var(--navy2);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+  max-height: 480px;
+}
+.wa-chat.open { display: flex; }
+.wa-header {
+  background: #25D366;
+  color: #fff;
+  padding: 14px 18px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.wa-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 220px;
+  max-height: 300px;
+}
+.wa-msg {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+.wa-msg.bot {
+  background: var(--glass);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+.wa-msg.user {
+  background: #25D366;
+  color: #fff;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+.wa-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 16px 12px;
+}
+.wa-opt {
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass);
+  color: var(--text);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background .2s;
+}
+.wa-opt:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+.wa-input-row {
+  display: flex;
+  border-top: 1px solid var(--glass-border);
+  padding: 10px;
+  gap: 8px;
+}
+.wa-input-row input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  background: var(--navy);
+  color: var(--text);
+  font-size: 0.9rem;
+}
+.wa-input-row button {
+  background: #25D366;
+  border: none;
+  color: #fff;
+  width: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Theme Switcher */
+.theme-panel {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: var(--navy2);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px 0 0 12px;
+  padding: 12px 8px;
+  z-index: 1500;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.theme-dot {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform .2s;
+}
+.theme-dot:hover, .theme-dot.active { transform: scale(1.15); border-color: #fff; }
+.theme-dot.dark { background: #0a0a18; }
+.theme-dot.light { background: #f0f0f5; }
+.theme-dot.c1 { background: #FF4D94; }
+.theme-dot.c2 { background: #7c3aed; }
+.theme-dot.c3 { background: #06b6d4; }
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  z-index: 3000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--navy2);
+  border-radius: 20px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: auto;
+  position: relative;
+  border: 1px solid var(--glass-border);
+}
+.modal-close {
+  position: absolute;
+  top: 12px; right: 16px;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 5;
+}
+.modal-body { padding: 32px; }
+.tour-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  scroll-snap-type: x mandatory;
+}
+.tour-slider img, .tour-slide {
+  min-width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 12px;
+  scroll-snap-align: center;
+  background: linear-gradient(135deg, #2a2a4a, var(--primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+/* Exit Intent */
+.exit-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 4000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.exit-popup.open { display: flex; }
+.exit-box {
+  background: var(--navy2);
+  border-radius: 24px;
+  padding: 40px 32px;
+  text-align: center;
+  max-width: 420px;
+  border: 1px solid var(--primary);
+  box-shadow: 0 0 40px rgba(255,77,148,0.3);
+}
+.exit-box h2 { font-size: 1.8rem; margin-bottom: 12px; }
+.exit-box p { color: var(--text-muted); margin-bottom: 24px; }
+
+/* Admin */
+.admin-panel {
+  display: none;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 32px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+}
+.admin-panel.visible { display: block; }
+
+/* Footer */
+footer {
+  background: var(--navy2);
+  border-top: 1px solid var(--glass-border);
+  padding: 48px 24px 24px;
+  text-align: center;
+}
+footer .logo { margin-bottom: 16px; display: inline-block; }
+footer p { color: var(--text-muted); font-size: 0.9rem; margin: 8px 0; }
+footer a { color: var(--primary); text-decoration: none; }
+
+/* Lang Toggle */
+.lang-toggle {
+  display: flex;
+  gap: 4px;
+  background: var(--glass);
+  border-radius: 8px;
+  padding: 3px;
+}
+.lang-toggle button {
+  padding: 4px 10px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.lang-toggle button.active {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--navy2); flex-direction: column; padding: 20px; gap: 16px; border-bottom: 1px solid var(--glass-border); }
+  .nav-links.open { display: flex; }
+  .menu-toggle { display: block; }
+  .hero { height: 85vh; }
+  .wa-chat { width: calc(100vw - 24px); right: -8px; }
+  .theme-panel { top: auto; bottom: 100px; right: 8px; transform: none; }
+}
+</style>
+</head>
+<body data-theme="dark">
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <span data-i18n="hours">🕐 Open Daily 10:00 AM – 9:00 PM</span>
+  <span>
+    <a href="#" aria-label="Instagram">IG</a>
+    <a href="#" aria-label="Facebook">FB</a>
+    <a href="#" aria-label="YouTube">YT</a>
+  </span>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+  <div class="logo" id="logoName">StyleHub Elite</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#services" data-i18n="nav_services">Services</a></li>
+    <li><a href="#booking" data-i18n="nav_book">Book</a></li>
+    <li><a href="#team" data-i18n="nav_team">Team</a></li>
+    <li><a href="#testimonials" data-i18n="nav_reviews">Reviews</a></li>
+    <li><a href="#tour" data-i18n="nav_tour">360° Tour</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <div class="lang-toggle">
+      <button class="active" data-lang="EN">EN</button>
+      <button data-lang="HI">HI</button>
+      <button data-lang="BN">BN</button>
+    </div>
+    <a href="#booking" class="btn btn-primary btn-glow" data-i18n="vip_booking">VIP Booking</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- Offer Bar -->
+<div class="offer-bar" id="offerBar">
+  <span data-i18n="offer_text">🔥 3 Bridal Slots Left This Week</span>
+  <span id="countdown">23:59:59</span>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-videos" id="heroVideos">
+    <div class="hero-fallback" style="position:absolute;inset:0;background:linear-gradient(135deg,#1a1a2e,#2d1b4e,#FF4D94);opacity:1;"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1><span class="typewriter" id="typewriter"></span></h1>
+    <p style="font-size:1.15rem;opacity:.9;margin-bottom:8px;" data-i18n="hero_sub">Unisex Luxury Salon • Hair • Beard • Bridal • Couples</p>
+    <div class="hero-btns">
+      <a href="#" class="btn btn-primary magnet" id="btnHer" data-i18n="book_her">📅 Book for Her</a>
+      <a href="#" class="btn btn-outline magnet" id="btnHim" data-i18n="book_him">Book for Him</a>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services">
+  <div class="section-title">
+    <h2 data-i18n="services_title">Our Signature Services</h2>
+    <p data-i18n="services_sub">Crafted for Him, Her & Couples. Premium products. Expert stylists.</p>
+  </div>
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="her" data-i18n="tab_her">Her</button>
+    <button class="tab-btn" data-tab="him" data-i18n="tab_him">Him</button>
+    <button class="tab-btn" data-tab="couples" data-i18n="tab_couples">Couples</button>
+  </div>
+  <div class="services-grid" id="servicesGrid"></div>
+</section>
+
+<!-- Booking -->
+<section id="booking">
+  <div class="section-title">
+    <h2 data-i18n="booking_title">Book Your Appointment</h2>
+    <p data-i18n="booking_sub">Fill the form – we’ll open WhatsApp with your details ready.</p>
+  </div>
+  <div class="booking-box">
+    <h3 data-i18n="booking_form">Quick Booking</h3>
+    <form id="bookingForm">
+      <div class="form-group">
+        <label data-i18n="label_name">Your Name</label>
+        <input type="text" id="bkName" required placeholder="Full name">
+      </div>
+      <div class="form-group">
+        <label data-i18n="label_for">Booking For</label>
+        <select id="bkFor">
+          <option value="Her">Her</option>
+          <option value="Him">Him</option>
+          <option value="Couples">Couples</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label data-i18n="label_service">Service</label>
+        <select id="bkService"></select>
+      </div>
+      <div class="form-group">
+        <label data-i18n="label_date">Preferred Date</label>
+        <input type="date" id="bkDate" required>
+      </div>
+      <div class="form-group">
+        <label data-i18n="label_time">Preferred Time</label>
+        <select id="bkTime">
+          <option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option>
+          <option>1:00 PM</option><option>2:00 PM</option><option>3:00 PM</option>
+          <option>4:00 PM</option><option>5:00 PM</option><option>6:00 PM</option>
+          <option>7:00 PM</option><option>8:00 PM</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;margin-top:8px;" data-i18n="btn_whatsapp">📲 Continue on WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+<!-- Before After -->
+<section>
+  <div class="section-title">
+    <h2 data-i18n="ba_title">Before & After</h2>
+    <p data-i18n="ba_sub">Drag the slider to see the transformation.</p>
+  </div>
+  <div class="ba-container" id="baContainer">
+    <div class="ba-before"><span class="ba-label before">BEFORE</span></div>
+    <div class="ba-after" id="baAfter"><span class="ba-label after">AFTER</span></div>
+    <div class="ba-handle" id="baHandle"></div>
+  </div>
+</section>
+
+<!-- Team -->
+<section id="team">
+  <div class="section-title">
+    <h2 data-i18n="team_title">Meet Our Artists</h2>
+    <p data-i18n="team_sub">Award-winning stylists dedicated to your look.</p>
+  </div>
+  <div class="team-grid" id="teamGrid"></div>
+</section>
+
+<!-- Counters -->
+<section>
+  <div class="counters" id="counters">
+    <div class="counter-item"><h3 data-target="2847">0</h3><p data-i18n="stat_clients">Happy Clients</p></div>
+    <div class="counter-item"><h3 data-target="12">0</h3><p data-i18n="stat_years">Years Experience</p></div>
+    <div class="counter-item"><h3 data-target="48">0</h3><p data-i18n="stat_stylists">Expert Stylists</p></div>
+    <div class="counter-item"><h3 data-target="96">0</h3><p data-i18n="stat_rating">% Satisfaction</p></div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials">
+  <div class="section-title">
+    <h2 data-i18n="reviews_title">Client Love</h2>
+    <p data-i18n="reviews_sub">Real stories from our family.</p>
+  </div>
+  <div class="testimonial-wrap">
+    <div class="testimonial-track" id="testiTrack">
+      <div class="testimonial-slide">
+        <div style="background:var(--glass);border-radius:16px;padding:40px;text-align:center;min-height:280px;display:flex;flex-direction:column;justify-content:center;">
+          <p style="font-size:1.2rem;font-style:italic;margin-bottom:20px;">“Best bridal makeup experience ever. The team made me feel like a queen.”</p>
+          <strong>— Priya S.</strong>
+        </div>
+      </div>
+      <div class="testimonial-slide">
+        <div style="background:var(--glass);border-radius:16px;padding:40px;text-align:center;min-height:280px;display:flex;flex-direction:column;justify-content:center;">
+          <p style="font-size:1.2rem;font-style:italic;margin-bottom:20px;">“Clean cuts, perfect fade. My go-to salon for 3 years now.”</p>
+          <strong>— Arjun M.</strong>
+        </div>
+      </div>
+      <div class="testimonial-slide">
+        <div style="background:var(--glass);border-radius:16px;padding:40px;text-align:center;min-height:280px;display:flex;flex-direction:column;justify-content:center;">
+          <p style="font-size:1.2rem;font-style:italic;margin-bottom:20px;">“Couples package was romantic and fun. Highly recommend StyleHub!”</p>
+          <strong>— Neha & Rohan</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Instagram -->
+<section>
+  <div class="section-title">
+    <h2 data-i18n="ig_title">@StyleHubElite</h2>
+    <p data-i18n="ig_sub">Follow us for daily inspiration.</p>
+  </div>
+  <div class="ig-grid" id="igGrid"></div>
+</section>
+
+<!-- 360 Tour CTA -->
+<section id="tour" style="text-align:center;">
+  <h2 data-i18n="tour_title" style="margin-bottom:16px;">Virtual 360° Tour</h2>
+  <p data-i18n="tour_sub" style="color:var(--text-muted);margin-bottom:24px;">Walk through our luxury space from home.</p>
+  <button class="btn btn-primary" id="openTour" data-i18n="tour_btn">Explore Salon</button>
+</section>
+
+<!-- Admin (hash) -->
+<div class="admin-panel" id="adminPanel">
+  <h2 style="margin-bottom:20px;">Admin Panel</h2>
+  <div id="adminLogin">
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" id="adminPass" placeholder="Enter password">
+    </div>
+    <button class="btn btn-primary" id="adminLoginBtn" style="width:100%;">Login</button>
+  </div>
+  <div id="adminDashboard" style="display:none;">
+    <p style="margin-bottom:16px;color:var(--text-muted);">Broadcast offer to customer list (demo numbers).</p>
+    <button class="btn btn-primary" id="broadcastBtn" style="width:100%;">📢 Broadcast Offer via WhatsApp</button>
+    <p id="broadcastStatus" style="margin-top:12px;font-size:0.9rem;"></p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="logo" id="footerLogo">StyleHub Elite</div>
+  <p data-i18n="footer_tag">Unisex Luxury Salon • Your Style. Our Craft.</p>
+  <p>WhatsApp: <a href="#" id="footerWa">+91 98765 43210</a></p>
+  <p style="margin-top:20px;font-size:0.8rem;">© 2026 StyleHub Elite. All rights reserved. made by mujahar ♥</p>
+</footer>
+
+<!-- Theme Switcher -->
+<div class="theme-panel">
+  <div class="theme-dot dark active" data-theme="dark" title="Dark"></div>
+  <div class="theme-dot light" data-theme="light" title="Light"></div>
+  <div class="theme-dot c1" data-color="#FF4D94" title="Pink"></div>
+  <div class="theme-dot c2" data-color="#7c3aed" title="Purple"></div>
+  <div class="theme-dot c3" data-color="#06b6d4" title="Cyan"></div>
+</div>
+
+<!-- Floating WA -->
+<div class="wa-float">
+  <div class="wa-chat" id="waChat">
+    <div class="wa-header">
+      <span>StyleHub Assistant</span>
+      <button style="background:none;border:none;color:#fff;font-size:1.2rem;cursor:pointer;" id="waClose">✕</button>
+    </div>
+    <div class="wa-messages" id="waMessages"></div>
+    <div class="wa-options" id="waOptions"></div>
+    <div class="wa-input-row">
+      <input type="text" id="waInput" placeholder="Type a message..." autocomplete="off">
+      <button id="waSend">➤</button>
+    </div>
+  </div>
+  <button class="wa-btn" id="waToggle" aria-label="WhatsApp">💬</button>
+</div>
+
+<!-- 360 Modal -->
+<div class="modal-overlay" id="tourModal">
+  <div class="modal">
+    <button class="modal-close" id="closeTour">✕</button>
+    <div class="modal-body">
+      <h2 style="margin-bottom:16px;" data-i18n="tour_title">Virtual 360° Tour</h2>
+      <div class="tour-slider" id="tourSlider">
+        <div class="tour-slide">🛋️ Reception</div>
+        <div class="tour-slide">💇‍♀️ Styling Stations</div>
+        <div class="tour-slide">💆 Treatment Rooms</div>
+        <div class="tour-slide">🪞 Bridal Suite</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Exit Intent -->
+<div class="exit-popup" id="exitPopup">
+  <div class="exit-box">
+    <h2 data-i18n="exit_title">Wait! 🎁</h2>
+    <p data-i18n="exit_text">Get 20% OFF your first visit. Limited time only.</p>
+    <a href="#" class="btn btn-primary" id="exitWa" data-i18n="exit_btn">Claim Offer on WhatsApp</a>
+    <button style="display:block;margin:16px auto 0;background:none;border:none;color:var(--text-muted);cursor:pointer;" id="exitClose" data-i18n="exit_close">No thanks</button>
+  </div>
+</div>
+
+<script>
+/* =====================================================
+   CONFIG – Edit only this object to customize everything
+===================================================== */
+const CONFIG = {
+  SALON_NAME: "StyleHub Elite",
+  COLOR_PRIMARY: "#FF4D94",
+  WHATSAPP_HER: "919876543210",
+  WHATSAPP_HIM: "919876543211",
+  HERO_VIDEOS: ["assets/video1.mp4","assets/video2.mp4","assets/video3.mp4"],
+  LANG: "EN",
+  ADMIN_PASSWORD: "admin123",
+  BOT_REPLIES: {
+    welcome: "Hi! Welcome to StyleHub. How can I help you today?",
+    book: "Great! For Him, Her or Couples? Please share Date and Time.",
+    price: "Here is our Price List: https://link.com/menu.pdf",
+    offer: "Today's Offer: Haircut + Beard = ₹299 only!",
+    location: "Our Location: https://maps.google.com/xxx"
+  },
+  CUSTOMERS_DEMO: ["919800000001","919800000002","919800000003"]
+};
+
+/* =====================================================
+   TRANSLATIONS
+===================================================== */
+const I18N = {
+  EN: {
+    hours: "🕐 Open Daily 10:00 AM – 9:00 PM",
+    nav_services: "Services", nav_book: "Book", nav_team: "Team", nav_reviews: "Reviews", nav_tour: "360° Tour",
+    vip_booking: "VIP Booking",
+    offer_text: "🔥 3 Bridal Slots Left This Week",
+    hero_sub: "Unisex Luxury Salon • Hair • Beard • Bridal • Couples",
+    book_her: "📅 Book for Her", book_him: "Book for Him",
+    services_title: "Our Signature Services", services_sub: "Crafted for Him, Her & Couples. Premium products. Expert stylists.",
+    tab_her: "Her", tab_him: "Him", tab_couples: "Couples",
+    booking_title: "Book Your Appointment", booking_sub: "Fill the form – we’ll open WhatsApp with your details ready.",
+    booking_form: "Quick Booking", label_name: "Your Name", label_for: "Booking For", label_service: "Service",
+    label_date: "Preferred Date", label_time: "Preferred Time", btn_whatsapp: "📲 Continue on WhatsApp",
+    ba_title: "Before & After", ba_sub: "Drag the slider to see the transformation.",
+    team_title: "Meet Our Artists", team_sub: "Award-winning stylists dedicated to your look.",
+    stat_clients: "Happy Clients", stat_years: "Years Experience", stat_stylists: "Expert Stylists", stat_rating: "% Satisfaction",
+    reviews_title: "Client Love", reviews_sub: "Real stories from our family.",
+    ig_title: "@StyleHubElite", ig_sub: "Follow us for daily inspiration.",
+    tour_title: "Virtual 360° Tour", tour_sub: "Walk through our luxury space from home.", tour_btn: "Explore Salon",
+    footer_tag: "Unisex Luxury Salon • Your Style. Our Craft.",
+    exit_title: "Wait! 🎁", exit_text: "Get 20% OFF your first visit. Limited time only.",
+    exit_btn: "Claim Offer on WhatsApp", exit_close: "No thanks"
+  },
+  HI: {
+    hours: "🕐 रोज़ 10:00 AM – 9:00 PM खुला",
+    nav_services: "सेवाएं", nav_book: "बुक करें", nav_team: "टीम", nav_reviews: "रिव्यू", nav_tour: "360° टूर",
+    vip_booking: "VIP बुकिंग",
+    offer_text: "🔥 इस हफ्ते 3 ब्राइडल स्लॉट बचे",
+    hero_sub: "यूनिसेक्स लक्ज़री सैलून • हेयर • बीयर्ड • ब्राइडल • कपल",
+    book_her: "📅 उसके लिए बुक", book_him: "उसके लिए बुक",
+    services_title: "हमारी सिग्नेचर सेवाएं", services_sub: "हिम, हर और कपल के लिए। प्रीमियम प्रोडक्ट्स।",
+    tab_her: "महिला", tab_him: "पुरुष", tab_couples: "कपल",
+    booking_title: "अपॉइंटमेंट बुक करें", booking_sub: "फॉर्म भरें – WhatsApp पर डिटेल्स के साथ खुल जाएगा।",
+    booking_form: "क्विक बुकिंग", label_name: "आपका नाम", label_for: "बुकिंग के लिए", label_service: "सेवा",
+    label_date: "तारीख", label_time: "समय", btn_whatsapp: "📲 WhatsApp पर जारी रखें",
+    ba_title: "पहले और बाद", ba_sub: "स्लाइडर खींचकर बदलाव देखें।",
+    team_title: "हमारे आर्टिस्ट", team_sub: "अवॉर्ड विनिंग स्टाइलिस्ट।",
+    stat_clients: "खुश क्लाइंट्स", stat_years: "साल का अनुभव", stat_stylists: "एक्सपर्ट स्टाइलिस्ट", stat_rating: "% संतुष्टि",
+    reviews_title: "क्लाइंट लव", reviews_sub: "हमारे परिवार की असली कहानियाँ।",
+    ig_title: "@StyleHubElite", ig_sub: "रोज़ाना इंस्पिरेशन के लिए फॉलो करें।",
+    tour_title: "वर्चुअल 360° टूर", tour_sub: "घर बैठे हमारे सैलून का अनुभव लें।", tour_btn: "सैलून देखें",
+    footer_tag: "यूनिसेक्स लक्ज़री सैलून • Your Style. Our Craft.",
+    exit_title: "रुकिए! 🎁", exit_text: "पहली विजिट पर 20% छूट पाएं। सीमित समय।",
+    exit_btn: "WhatsApp पर ऑफर लें", exit_close: "नहीं धन्यवाद"
+  },
+  BN: {
+    hours: "🕐 প্রতিদিন সকাল ১০টা – রাত ৯টা খোলা",
+    nav_services: "সার্ভিস", nav_book: "বুক করুন", nav_team: "টিম", nav_reviews: "রিভিউ", nav_tour: "৩৬০° ট্যুর",
+    vip_booking: "VIP বুকিং",
+    offer_text: "🔥 এই সপ্তাহে ৩টি ব্রাইডাল স্লট বাকি",
+    hero_sub: "ইউনিসেক্স লাক্সারি সেলুন • হেয়ার • বিয়ার্ড • ব্রাইডাল • কাপল",
+    book_her: "📅 তার জন্য বুক", book_him: "তার জন্য বুক",
+    services_title: "আমাদের সিগনেচার সার্ভিস", services_sub: "হিম, হার ও কাপলের জন্য। প্রিমিয়াম প্রোডাক্ট।",
+    tab_her: "নারী", tab_him: "পুরুষ", tab_couples: "কাপল",
+    booking_title: "অ্যাপয়েন্টমেন্ট বুক করুন", booking_sub: "ফর্ম পূরণ করুন – WhatsApp এ ডিটেইলস সহ খুলবে।",
+    booking_form: "কুইক বুকিং", label_name: "আপনার নাম", label_for: "বুকিংয়ের জন্য", label_service: "সার্ভিস",
+    label_date: "তারিখ", label_time: "সময়", btn_whatsapp: "📲 WhatsApp এ চালিয়ে যান",
+    ba_title: "আগে ও পরে", ba_sub: "স্লাইডার টেনে পরিবর্তন দেখুন।",
+    team_title: "আমাদের আর্টিস্ট", team_sub: "অ্যাওয়ার্ড বিজয়ী স্টাইলিস্ট।",
+    stat_clients: "খুশি ক্লায়েন্ট", stat_years: "বছরের অভিজ্ঞতা", stat_stylists: "এক্সপার্ট স্টাইলিস্ট", stat_rating: "% সন্তুষ্টি",
+    reviews_title: "ক্লায়েন্ট লাভ", reviews_sub: "আমাদের পরিবারের আসল গল্প।",
+    ig_title: "@StyleHubElite", ig_sub: "প্রতিদিনের অনুপ্রেরণার জন্য ফলো করুন।",
+    tour_title: "ভার্চুয়াল ৩৬০° ট্যুর", tour_sub: "বাড়িতে বসে আমাদের সেলুন দেখুন।", tour_btn: "সেলুন ঘুরে দেখুন",
+    footer_tag: "ইউনিসেক্স লাক্সারি সেলুন • Your Style. Our Craft.",
+    exit_title: "অপেক্ষা করুন! 🎁", exit_text: "প্রথম ভিজিটে ২০% ছাড় পান। সীমিত সময়।",
+    exit_btn: "WhatsApp এ অফার নিন", exit_close: "না ধন্যবাদ"
+  }
+};
+
+/* =====================================================
+   DATA
+===================================================== */
+const SERVICES = {
+  her: [
+    { name: "Signature Haircut & Style", price: 899, old: 1299, popular: true, desc: "Wash, cut, blow-dry with premium products." },
+    { name: "Global Hair Colour", price: 3499, old: 4499, popular: false, desc: "Ammonia-free colour with bond protection." },
+    { name: "Keratin Smoothening", price: 4999, old: 6999, popular: true, desc: "Frizz-free shine for up to 4 months." },
+    { name: "Bridal Makeup Package", price: 15999, old: 19999, popular: true, desc: "HD makeup + hair + trial included." }
+  ],
+  him: [
+    { name: "Precision Haircut", price: 499, old: 699, popular: true, desc: "Classic or modern styles by expert barbers." },
+    { name: "Beard Sculpt & Trim", price: 299, old: 399, popular: true, desc: "Shape, trim and hot towel finish." },
+    { name: "Hair + Beard Combo", price: 699, old: 999, popular: true, desc: "Complete look in one session." },
+    { name: "Head Spa Ritual", price: 1299, old: 1699, popular: false, desc: "Deep cleanse, massage and treatment." }
+  ],
+  couples: [
+    { name: "Couples Haircut Duo", price: 1199, old: 1599, popular: true, desc: "His + Her cut in a private suite." },
+    { name: "Date Night Glow", price: 2499, old: 3299, popular: false, desc: "Hair + mini facial for both." },
+    { name: "Pre-Wedding Package", price: 8999, old: 11999, popular: true, desc: "Hair, skin and grooming for the couple." }
+  ]
+};
+
+const TEAM = [
+  { emoji: "👩‍🦰", name: "Ananya Rao", title: "Creative Director" },
+  { emoji: "👨‍🦱", name: "Vikram Shah", title: "Master Barber" },
+  { emoji: "👩‍🎤", name: "Sana Khan", title: "Bridal Specialist" },
+  { emoji: "👨‍🎨", name: "Leo Fernandes", title: "Colour Expert" }
+];
+
+/* =====================================================
+   STATE
+===================================================== */
+let currentLang = CONFIG.LANG || "EN";
+let botState = { step: "welcome", gender: null, date: null, time: null };
+let exitShown = false;
+let testiIndex = 0;
+
+/* =====================================================
+   INIT
+===================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  document.documentElement.style.setProperty("--primary", CONFIG.COLOR_PRIMARY);
+  document.getElementById("logoName").textContent = CONFIG.SALON_NAME;
+  document.getElementById("footerLogo").textContent = CONFIG.SALON_NAME;
+  document.title = CONFIG.SALON_NAME + " | Unisex Luxury Salon";
+
+  applyLang(currentLang);
+  renderServices("her");
+  renderTeam();
+  renderIG();
+  setupHero();
+  setupTypewriter();
+  setupCountdown();
+  setupCursor();
+  setupMagnet();
+  setupBA();
+  setupCounters();
+  setupTesti();
+  setupBooking();
+  setupWA();
+  setupTheme();
+  setupLang();
+  setupNav();
+  setupTour();
+  setupExit();
+  setupAdmin();
+  setupHeroButtons();
+});
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+function applyLang(lang) {
+  currentLang = lang;
+  const t = I18N[lang] || I18N.EN;
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (t[key]) el.textContent = t[key];
+  });
+  document.querySelectorAll(".lang-toggle button").forEach(b => {
+    b.classList.toggle("active", b.dataset.lang === lang);
+  });
+}
+function setupLang() {
+  document.querySelectorAll(".lang-toggle button").forEach(btn => {
+    btn.addEventListener("click", () => applyLang(btn.dataset.lang));
+  });
+}
+
+/* =====================================================
+   SERVICES
+===================================================== */
+function renderServices(tab) {
+  const grid = document.getElementById("servicesGrid");
+  grid.innerHTML = "";
+  (SERVICES[tab] || []).forEach(s => {
+    const card = document.createElement("div");
+    card.className = "service-card";
+    card.innerHTML = `
+      ${s.popular ? '<span class="badge">Most Popular</span>' : ''}
+      <h3>${s.name}</h3>
+      <p>${s.desc}</p>
+      <div class="price"><span class="strike">₹${s.old}</span>₹${s.price}</div>
+      <button class="btn btn-outline" style="width:100%;margin-top:8px;font-size:0.85rem;" onclick="quickBook('${tab}','${s.name}')">Book Now</button>
+    `;
+    grid.appendChild(card);
+  });
+  // Update form service select
+  const sel = document.getElementById("bkService");
+  if (sel) {
+    sel.innerHTML = (SERVICES[tab] || []).map(s => `<option value="${s.name}">${s.name} – ₹${s.price}</option>`).join("");
+  }
+}
+document.querySelectorAll(".tab-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    renderServices(btn.dataset.tab);
+  });
+});
+function quickBook(forWho, service) {
+  const num = forWho === "him" ? CONFIG.WHATSAPP_HIM : CONFIG.WHATSAPP_HER;
+  const text = encodeURIComponent(`Hi ${CONFIG.SALON_NAME}! I want to book:\nService: ${service}\nFor: ${forWho}\nPlease share available slots.`);
+  window.open(`https://wa.me/${num}?text=${text}`, "_blank");
+}
+
+/* =====================================================
+   TEAM & IG
+===================================================== */
+function renderTeam() {
+  const grid = document.getElementById("teamGrid");
+  grid.innerHTML = TEAM.map(t => `
+    <div class="team-card">
+      <div class="avatar">${t.emoji}</div>
+      <div class="overlay"><h4>${t.name}</h4><span>${t.title}</span></div>
+    </div>
+  `).join("");
+}
+function renderIG() {
+  const grid = document.getElementById("igGrid");
+  const emojis = ["💇‍♀️","✨","🪞","💄","🧔","🌸"];
+  grid.innerHTML = emojis.map(e => `<div class="ig-item">${e}</div>`).join("");
+}
+
+/* =====================================================
+   HERO VIDEO + TYPEWRITER
+===================================================== */
+function setupHero() {
+  // Fallback gradient already present. Real videos can be injected if files exist.
+  const container = document.getElementById("heroVideos");
+  // Optional: try loading videos if paths resolve
+}
+function setupTypewriter() {
+  const el = document.getElementById("typewriter");
+  const phrases = ["Your Style. Our Craft. Your Confidence.", "Luxury Looks for Him & Her.", "Where Beauty Meets Precision."];
+  let p = 0, i = 0, deleting = false;
+  function tick() {
+    const current = phrases[p];
+    if (!deleting) {
+      el.textContent = current.slice(0, i + 1);
+      i++;
+      if (i === current.length) { deleting = true; setTimeout(tick, 2200); return; }
+    } else {
+      el.textContent = current.slice(0, i - 1);
+      i--;
+      if (i === 0) { deleting = false; p = (p + 1) % phrases.length; }
+    }
+    setTimeout(tick, deleting ? 40 : 70);
+  }
+  tick();
+}
+function setupHeroButtons() {
+  document.getElementById("btnHer").href = `https://wa.me/${CONFIG.WHATSAPP_HER}?text=${encodeURIComponent("Hi! I want to book an appointment for Her at " + CONFIG.SALON_NAME)}`;
+  document.getElementById("btnHim").href = `https://wa.me/${CONFIG.WHATSAPP_HIM}?text=${encodeURIComponent("Hi! I want to book an appointment for Him at " + CONFIG.SALON_NAME)}`;
+  document.getElementById("footerWa").href = `https://wa.me/${CONFIG.WHATSAPP_HER}`;
+  document.getElementById("footerWa").textContent = "+" + CONFIG.WHATSAPP_HER.replace(/(\d{2})(\d{5})(\d{5})/, "$1 $2 $3");
+}
+
+/* =====================================================
+   COUNTDOWN (resets daily)
+===================================================== */
+function setupCountdown() {
+  function update() {
+    const now = new Date();
+    const end = new Date();
+    end.setHours(23, 59, 59, 999);
+    const diff = end - now;
+    if (diff <= 0) { document.getElementById("countdown").textContent = "00:00:00"; return; }
+    const h = String(Math.floor(diff / 3600000)).padStart(2, "0");
+    const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, "0");
+    const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, "0");
+    document.getElementById("countdown").textContent = `${h}:${m}:${s}`;
+  }
+  update();
+  setInterval(update, 1000);
+}
+
+/* =====================================================
+   CURSOR + SPARKLE + MAGNET
+===================================================== */
+function setupCursor() {
+  const cursor = document.getElementById("cursor");
+  if (window.matchMedia("(max-width:768px)").matches) { cursor.style.display = "none"; return; }
+  document.addEventListener("mousemove", e => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+    if (Math.random() > 0.7) {
+      const s = document.createElement("div");
+      s.className = "sparkle";
+      s.style.left = e.clientX + "px";
+      s.style.top = e.clientY + "px";
+      document.body.appendChild(s);
+      setTimeout(() => s.remove(), 600);
+    }
+  });
+  document.querySelectorAll("a,button,.btn,.tab-btn,.wa-opt").forEach(el => {
+    el.addEventListener("mouseenter", () => cursor.classList.add("hover"));
+    el.addEventListener("mouseleave", () => cursor.classList.remove("hover"));
+  });
+}
+function setupMagnet() {
+  document.querySelectorAll(".magnet").forEach(btn => {
+    btn.addEventListener("mousemove", e => {
+      const r = btn.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width / 2;
+      const y = e.clientY - r.top - r.height / 2;
+      btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+    });
+    btn.addEventListener("mouseleave", () => { btn.style.transform = ""; });
+  });
+}
+
+/* =====================================================
+   BEFORE-AFTER SLIDER
+===================================================== */
+function setupBA() {
+  const container = document.getElementById("baContainer");
+  const after = document.getElementById("baAfter");
+  const handle = document.getElementById("baHandle");
+  let dragging = false;
+  function move(x) {
+    const rect = container.getBoundingClientRect();
+    let pct = ((x - rect.left) / rect.width) * 100;
+    pct = Math.max(5, Math.min(95, pct));
+    after.style.width = pct + "%";
+    handle.style.left = pct + "%";
+  }
+  handle.addEventListener("mousedown", () => dragging = true);
+  window.addEventListener("mouseup", () => dragging = false);
+  window.addEventListener("mousemove", e => { if (dragging) move(e.clientX); });
+  handle.addEventListener("touchstart", () => dragging = true);
+  window.addEventListener("touchend", () => dragging = false);
+  window.addEventListener("touchmove", e => { if (dragging) move(e.touches[0].clientX); });
+}
+
+/* =====================================================
+   COUNTERS
+===================================================== */
+function setupCounters() {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.querySelectorAll("h3").forEach(h => {
+        const target = +h.dataset.target;
+        let cur = 0;
+        const step = Math.ceil(target / 60);
+        const timer = setInterval(() => {
+          cur += step;
+          if (cur >= target) { cur = target; clearInterval(timer); }
+          h.textContent = cur.toLocaleString();
+        }, 25);
+      });
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.4 });
+  observer.observe(document.getElementById("counters"));
+}
+
+/* =====================================================
+   TESTIMONIALS
+===================================================== */
+function setupTesti() {
+  const track = document.getElementById("testiTrack");
+  setInterval(() => {
+    testiIndex = (testiIndex + 1) % 3;
+    track.style.transform = `translateX(-${testiIndex * 100}%)`;
+  }, 5000);
+}
+
+/* =====================================================
+   BOOKING FORM → WhatsApp
+===================================================== */
+function setupBooking() {
+  const today = new Date().toISOString().split("T")[0];
+  document.getElementById("bkDate").min = today;
+  document.getElementById("bookingForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const name = document.getElementById("bkName").value.trim();
+    const forWho = document.getElementById("bkFor").value;
+    const service = document.getElementById("bkService").value;
+    const date = document.getElementById("bkDate").value;
+    const time = document.getElementById("bkTime").value;
+    const num = forWho === "Him" ? CONFIG.WHATSAPP_HIM : CONFIG.WHATSAPP_HER;
+    const text = encodeURIComponent(
+      `*New Booking Request – ${CONFIG.SALON_NAME}*\n\nName: ${name}\nFor: ${forWho}\nService: ${service}\nDate: ${date}\nTime: ${time}\n\nPlease confirm.`
+    );
+    window.open(`https://wa.me/${num}?text=${text}`, "_blank");
+  });
+  // Populate initial services
+  renderServices("her");
+}
+
+/* =====================================================
+   WHATSAPP BOT
+===================================================== */
+function setupWA() {
+  const chat = document.getElementById("waChat");
+  const toggle = document.getElementById("waToggle");
+  const close = document.getElementById("waClose");
+  const messages = document.getElementById("waMessages");
+  const options = document.getElementById("waOptions");
+  const input = document.getElementById("waInput");
+  const send = document.getElementById("waSend");
+
+  toggle.addEventListener("click", () => {
+    chat.classList.toggle("open");
+    if (chat.classList.contains("open") && messages.children.length === 0) {
+      botReply(CONFIG.BOT_REPLIES.welcome);
+      showOptions(["Book Appointment", "Price List", "Today's Offer", "Location"]);
+    }
+  });
+  close.addEventListener("click", () => chat.classList.remove("open"));
+
+  function botReply(text) {
+    const div = document.createElement("div");
+    div.className = "wa-msg bot";
+    div.textContent = text;
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+  }
+  function userReply(text) {
+    const div = document.createElement("div");
+    div.className = "wa-msg user";
+    div.textContent = text;
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+  }
+  function showOptions(arr) {
+    options.innerHTML = "";
+    arr.forEach(o => {
+      const b = document.createElement("button");
+      b.className = "wa-opt";
+      b.textContent = o;
+      b.addEventListener("click", () => handleBot(o));
+      options.appendChild(b);
+    });
+  }
+  function clearOptions() { options.innerHTML = ""; }
+
+  function handleBot(choice) {
+    userReply(choice);
+    clearOptions();
+    const c = choice.toLowerCase();
+    if (c.includes("book") || botState.step === "gender") {
+      if (botState.step === "welcome" || botState.step === "menu") {
+        botState.step = "gender";
+        botReply("Great! Who is this booking for?");
+        showOptions(["Her", "Him", "Couples"]);
+      } else if (botState.step === "gender") {
+        botState.gender = choice;
+        botState.step = "date";
+        botReply("Perfect. Please type your preferred Date (e.g. 15 Aug 2026) or pick a quick option:");
+        showOptions(["Tomorrow", "This Weekend", "Next Week"]);
+      }
+    } else if (botState.step === "date") {
+      botState.date = choice;
+      botState.step = "time";
+      botReply("And preferred Time?");
+      showOptions(["Morning", "Afternoon", "Evening"]);
+    } else if (botState.step === "time") {
+      botState.time = choice;
+      botState.step = "done";
+      const num = botState.gender === "Him" ? CONFIG.WHATSAPP_HIM : CONFIG.WHATSAPP_HER;
+      const finalText = encodeURIComponent(
+        `Hi ${CONFIG.SALON_NAME}!\nI want to book for *${botState.gender}*\nDate: ${botState.date}\nTime: ${botState.time}\nPlease confirm availability.`
+      );
+      botReply("Awesome! Opening WhatsApp with your booking details…");
+      setTimeout(() => {
+        window.open(`https://wa.me/${num}?text=${finalText}`, "_blank");
+        botState = { step: "welcome", gender: null, date: null, time: null };
+        showOptions(["Book Appointment", "Price List", "Today's Offer", "Location"]);
+      }, 800);
+    } else if (c.includes("price")) {
+      botReply(CONFIG.BOT_REPLIES.price);
+      showOptions(["Book Appointment", "Today's Offer", "Location"]);
+    } else if (c.includes("offer")) {
+      botReply(CONFIG.BOT_REPLIES.offer);
+      showOptions(["Book Appointment", "Price List", "Location"]);
+    } else if (c.includes("location")) {
+      botReply(CONFIG.BOT_REPLIES.location);
+      showOptions(["Book Appointment", "Price List", "Today's Offer"]);
+    } else {
+      botReply("I can help with Booking, Prices, Offers or Location. What would you like?");
+      showOptions(["Book Appointment", "Price List", "Today's Offer", "Location"]);
+    }
+  }
+
+  function sendMessage() {
+    const val = input.value.trim();
+    if (!val) return;
+    input.value = "";
+    if (botState.step === "date" || botState.step === "time") {
+      handleBot(val);
+    } else {
+      userReply(val);
+      botReply("Please use the quick options below or type Book / Price / Offer / Location.");
+      showOptions(["Book Appointment", "Price List", "Today's Offer", "Location"]);
+    }
+  }
+  send.addEventListener("click", sendMessage);
+  input.addEventListener("keydown", e => { if (e.key === "Enter") sendMessage(); });
+}
+
+/* =====================================================
+   THEME
+===================================================== */
+function setupTheme() {
+  document.querySelectorAll(".theme-dot").forEach(dot => {
+    dot.addEventListener("click", () => {
+      if (dot.dataset.theme) {
+        document.body.setAttribute("data-theme", dot.dataset.theme);
+        document.querySelectorAll(".theme-dot[data-theme]").forEach(d => d.classList.remove("active"));
+        dot.classList.add("active");
+      }
+      if (dot.dataset.color) {
+        document.documentElement.style.setProperty("--primary", dot.dataset.color);
+        document.querySelectorAll(".theme-dot[data-color]").forEach(d => d.classList.remove("active"));
+        dot.classList.add("active");
+      }
+    });
+  });
+}
+
+/* =====================================================
+   NAV
+===================================================== */
+function setupNav() {
+  const nav = document.getElementById("navbar");
+  window.addEventListener("scroll", () => {
+    nav.classList.toggle("scrolled", window.scrollY > 40);
+  });
+  document.getElementById("menuToggle").addEventListener("click", () => {
+    document.getElementById("navLinks").classList.toggle("open");
+  });
+}
+
+/* =====================================================
+   360 TOUR
+===================================================== */
+function setupTour() {
+  document.getElementById("openTour").addEventListener("click", () => {
+    document.getElementById("tourModal").classList.add("open");
+  });
+  document.getElementById("closeTour").addEventListener("click", () => {
+    document.getElementById("tourModal").classList.remove("open");
+  });
+  document.getElementById("tourModal").addEventListener("click", e => {
+    if (e.target.id === "tourModal") e.target.classList.remove("open");
+  });
+}
+
+/* =====================================================
+   EXIT INTENT
+===================================================== */
+function setupExit() {
+  document.addEventListener("mouseout", e => {
+    if (exitShown) return;
+    if (e.clientY < 20 && e.relatedTarget === null) {
+      exitShown = true;
+      document.getElementById("exitPopup").classList.add("open");
+    }
+  });
+  document.getElementById("exitClose").addEventListener("click", () => {
+    document.getElementById("exitPopup").classList.remove("open");
+  });
+  document.getElementById("exitWa").href = `https://wa.me/${CONFIG.WHATSAPP_HER}?text=${encodeURIComponent("Hi! I want to claim the 20% OFF first-visit offer at " + CONFIG.SALON_NAME)}`;
+}
+
+/* =====================================================
+   ADMIN PANEL (#admin)
+===================================================== */
+function setupAdmin() {
+  if (location.hash === "#admin") {
+    document.getElementById("adminPanel").classList.add("visible");
+    document.getElementById("adminPanel").scrollIntoView({ behavior: "smooth" });
+  }
+  window.addEventListener("hashchange", () => {
+    if (location.hash === "#admin") {
+      document.getElementById("adminPanel").classList.add("visible");
+    }
+  });
+  document.getElementById("adminLoginBtn").addEventListener("click", () => {
+    if (document.getElementById("adminPass").value === CONFIG.ADMIN_PASSWORD) {
+      document.getElementById("adminLogin").style.display = "none";
+      document.getElementById("adminDashboard").style.display = "block";
+    } else {
+      alert("Wrong password");
+    }
+  });
+  document.getElementById("broadcastBtn").addEventListener("click", async () => {
+    const status = document.getElementById("broadcastStatus");
+    const list = CONFIG.CUSTOMERS_DEMO || [];
+    status.textContent = "Starting broadcast…";
+    for (let i = 0; i < list.length; i++) {
+      const num = list[i];
+      const text = encodeURIComponent(CONFIG.BOT_REPLIES.offer + "\n\nReply to book at " + CONFIG.SALON_NAME);
+      status.textContent = `Opening WhatsApp for ${num} (${i + 1}/${list.length})…`;
+      window.open(`https://wa.me/${num}?text=${text}`, "_blank");
+      await new Promise(r => setTimeout(r, 2000));
+    }
+    status.textContent = "Broadcast complete (demo).";
+  });
+}
+</script>
+</body>
+</html>
